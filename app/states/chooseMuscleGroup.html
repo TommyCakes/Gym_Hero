@@ -1,0 +1,16 @@
+
+  <ul class="collection with-header">
+    <li class="collection-header"><h4>Choose your muscle group!</h4></li>
+      <li ng-click="chest=true" class="collection-item" ng-model="app.chest"><div>Chest<a href="#!" ui-sref="createWorkout.addMovement" ng-click="chest=true" <i class="material-icons">send</i></a></li></div>
+        <li class="collection-item"><div>Legs</li></div>
+          <li class="collection-item"><div>Shoulders</li></div>
+            <li class="collection-item"><div>Abs</li></div>
+              <li class="collection-item"><div>Triceps</li></div>
+                <li class="collection-item"><div>Biceps</div></li>
+                <a href="#!" ui-sref="createWorkout.addMovement"<i class="material-icons">send</i></a>
+      </ul>
+<p ng-show="chest">True</p>
+
+<button ng-click="chest=true">
+  <p>Chest</p>
+</button>

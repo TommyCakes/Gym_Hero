@@ -1,0 +1,9 @@
+<div class="intro deep-orange lighten-2 z-depth-1">
+  <h2>Previous Workouts</h2>
+<!-- <p> {{ app.movements | limitTo:4  }}</p> -->
+<div ng-repeat="move in app.movements | limitTo:10">
+  <h5>Exercise: <span class="center blue-text">{{ move.name }}</span> , Reps: <span class="center blue-text">{{ move.reps}}</span>
+  ,Weight:<span class="center blue-text">{{ move.weight}}</span></h5>
+</div>
+
+</div>

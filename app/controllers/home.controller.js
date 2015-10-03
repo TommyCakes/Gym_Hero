@@ -1,5 +1,5 @@
 angular.module('workoutApp')
-  .controller('HomeCtrl', function($firebaseObject, $firebaseArray, firebaseUrl ){
+  .controller('HomeCtrl', function($firebaseObject, $firebaseArray, firebaseUrl, Auth ){
   this.fireLink = firebaseUrl;
     var self = this;
     var ref = new Firebase(firebaseUrl)
@@ -14,6 +14,8 @@ angular.module('workoutApp')
     // this.firstArray = $firebaseArray(ref)
     this.movements = $firebaseArray(moveRef)
     this.users = $firebaseArray(userRef)
+
+
     // this.exercises = $firebaseArray(exerciseRef)
     // this.firstObject = $firebaseObject(ref)
 
@@ -22,39 +24,61 @@ angular.module('workoutApp')
     //     movement: 'Barbell Curl'
     //   })
     // }
-    this.login = function () {
-    ref.authWithOAuthPopup("twitter", function(error, authData) {
-      if (error) {
-        console.log("Login Failed!", error);
-      } else {
-        console.log("Authenticated successfully with payload:", authData);
-      }
-    });
-    };
 
-    this.addUser = function () {
-      self.users.$add({
-        name: self.userName,
-        password: self.password
-      });
-      self.userName = "",
-      self.password = ""
-    }
+    self.exercises = ['hello', 'you'];
+    self.chests = ['Bench press', 'Incline Bench Press'];
+    self.legs = ['Leg press', 'Squat']
 
+    this.login = Auth.login
+    this.logout = Auth.logout
+
+    // this.addUser = function () {
+    //   self.users.$add({
+    //     name: self.userName,
+    //     password: self.password
+    //   });
+    //   self.userName = "",
+    //   self.password = ""
+    // }
     this.firstWorkout = function () {
       self.movements.$add ({
-      name: self.name,
+      name: self.chest,
       weight: self.weight + " kg",
       reps: self.reps,
     });
-    self.name = "",
+    self.chest = "",
     self.weight = "",
     self.reps = ""
     console.log(this.movements)
   };
 
+    this.workout = [ ];
 
-    // this.workout = [ ];
+  //   this.firstWorkout = function () {
+  //     self.movements.$add ({
+  //     name: self.name,
+  //     weight: self.weight + " kg",
+  //     reps: self.reps,
+  //   });
+  //   self.name = "",
+  //   self.weight = "",
+  //   self.reps = ""
+  //   console.log(this.movements)
+  // };
+  //
+  //   this.workout = [ ];
+
+  this.addWorkout = function(){
+    this.workout.push({
+      name: "",
+      reps: "",
+      rds: "",
+      weight: "",
+    });
+  };
+  console.log(this.workout)
+
+
     //
     // this.addMovement = function() {
     //   this.workout.push({
@@ -68,7 +92,6 @@ angular.module('workoutApp')
     //   console.log(this.workout)
     // };
 
-    // self.exercises = ['BB curl', 'Crunch', 'Leg press', 'Chin up', 'Calf raise', 'Military press'];
     // this.addNewExercise = function () {
     // }
 
@@ -82,5 +105,4 @@ angular.module('workoutApp')
     // this.firstWorkout = function () {
     //   self.firstObject.$
     // }
-
   })
