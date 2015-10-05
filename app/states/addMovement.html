@@ -1,16 +1,19 @@
-<div id="move"></div>
+
 <form name="app.myForm">
-<input type="text" ng-model="app.name" placeholder="Exercise" required>
-<input type="text" ng-model="app.reps" placeholder="Reps" required>
-<input type="text" ng-model="app.weight" placeholder="Weight/kg" required>
+<input type="text" ng-model="app.name" placeholder="Exercise">
+<input type="text" ng-model="app.reps" placeholder="Reps" >
+<input type="text" ng-model="app.weight" placeholder="Weight/kg" >
+<input type="text" ng-model="app.sets" placeholder="Sets" >
+<input type="text" ng-model="app.time" placeholder="Time" >
 
  <!-- <input type="button" ng-click="app.addMovement()"><br>
  {{app.workout}} -->
 
  <!-- <input type="button" ng-click="app.firstWorkout()"> -->
- <button class="btn waves-effect waves-light green lighten-3" ng-show="(app.myForm.$valid)" ng-click="app.firstWorkout()">Confirm</button>
-<!-- <p ng-show="(app.myForm.$valid)"> {{ app.movements }}</p> -->
+ <button class="btn waves-effect waves-light green lighten-3" ng-click="app.firstWorkout()">Confirm</button>
+ <!-- ng-show="(app.myForm.$valid)" -->
 
+<!-- <p ng-show="(app.myForm.$valid)"> {{ app.movements }}</p> -->
 
 </form>
 
@@ -23,6 +26,7 @@
 <select ng-show="chest" class="black" ng-model="app.chest" ng-options="chest as chest for chest in app.chests">
 </select>
 <h2>{{ app.chest }}</h2>
+
 <p ng-show="chest">True</p>
 
 <button class="btn waves-effect waves-light green lighten-3" ng-click="app.firstWorkout()">Confirm</button>

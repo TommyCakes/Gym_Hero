@@ -4,6 +4,10 @@ body {
 #strip {
   height:1vh;
 }
+.intro {
+  background:#BDBDBD;
+  height:100vh;
+}
 .center-btn {
   text-align: center;
   width:100%;
@@ -14,9 +18,15 @@ body {
  span {
    font-size:.5em;
  }
- button {
-   border-radius:50%;
+ #welcome {
+      margin-top: 50px;
  }
+ .btn-large {
+    height: 70px;
+    line-height: 26px;
+    /*letter-spacing: 0.8px;*/
+ }
+
 
  /*.intro {
    height:100vh;
