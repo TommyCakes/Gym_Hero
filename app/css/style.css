@@ -1,12 +1,17 @@
 body {
   text-align: center;
+  color:lightgrey;
 }
 #strip {
   height:1vh;
 }
+.brand-logo {
+  font-size:100em;
+}
 .intro {
   background:#BDBDBD;
-  height:100vh;
+  height:625px;
+  padding-top:-700px;
 }
 .center-btn {
   text-align: center;
@@ -19,15 +24,23 @@ body {
    font-size:.5em;
  }
  #welcome {
-      margin-top: 50px;
+      margin-top: 10px;
+ }
+ .section {
+   padding-bottom: 0;
  }
  .btn-large {
     height: 70px;
     line-height: 26px;
     /*letter-spacing: 0.8px;*/
- }
-
-
+}
+img {
+  border-radius: 50%;
+}
+footer {
+  height:100vh:
+  background-color:black;
+}
  /*.intro {
    height:100vh;
    font-weight: 900;
@@ -55,23 +68,24 @@ img {
   padding:10px 70px;
 }*/
 
-#app-views.ng-enter, #app-views.ng-leave {
+#app-views.ng-enter, #app-views.ng-leave, #workout-view.ng-enter, #workout-view.ng-leave     {
     position:absolute; left:30px; right:30px;
     transition:0.1s all ease; -moz-transition:0.2s all ease; -webkit-transition:0.2s all ease;
 }
 
-#app-views.ng-enter            {
+#app-views.ng-enter, #workout-view.ng-enter               {
     -webkit-animation:slideInRight 1s both ease;
     -moz-animation:slideInRight 1s both ease;
     animation:slideInRight 1s both ease;
 }
 
 /* leave animation */
-#app-views.ng-leave            {
+#app-views.ng-leave, #workout-view.ng-leave          {
     -webkit-animation:slideOutLeft 0.5s both ease;
     -moz-animation:slideOutLeft 0.5s both ease;
     animation:slideOutLeft 0.5s both ease;
 }
+
 @keyframes slideOutLeft {
     to      { transform: translateX(-200%); }
 }

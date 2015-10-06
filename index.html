@@ -10,20 +10,22 @@
 </head>
 <body ng-controller="HomeCtrl as app">
 
-<!-- {{ app.fireLink}} -->
 </nav>
 <nav class="black">
   <div class="nav-wrapper container">
-    <a ui-sref="home" class="brand-logo center-text text-darken-2">Gym Hero</a>
+    <a ui-sref="home" class="brand-logo center-text">Gym Hero</a>
     <ul id="nav-mobile">
       <!-- class="right hide-on-med-and-down" -->
-      <li><a ui-sref="signIn" class="center grey-text ">Sign In</a></li>
+      <li><a ui-sref="signIn" class="center grey-text ">SIGN IN</a></li>
+      <!-- <li><a ui-sref="settings" class="right grey-text ">SETTINGS</a></li> -->
     </ul>
   </div>
 </nav>
-<!-- <nav id ="strip" class="grey"> -->
+
+
 
  <div id="app-views" ui-view></div>
+
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -37,6 +39,7 @@
 <script src="app/app.js"></script>
 <script src="app/services/authentication.js"></script>
 <script src="app/controllers/home.controller.js"></script>
+<script src="app/controllers/movement.controller.js"></script>
 
 </body>
 </html>

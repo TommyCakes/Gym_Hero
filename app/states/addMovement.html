@@ -1,33 +1,18 @@
 
-<form name="app.myForm">
-<input type="text" ng-model="app.name" placeholder="Exercise">
-<input type="text" ng-model="app.reps" placeholder="Reps" >
-<input type="text" ng-model="app.weight" placeholder="Weight/kg" >
-<input type="text" ng-model="app.sets" placeholder="Sets" >
-<input type="text" ng-model="app.time" placeholder="Time" >
+<form name="myForm">
+  <select class="black" ng-model="move.selected" ng-options="move as move for move in move.filtered">
+  </select>
+  <h2>{{ move.selected}}</h2>
 
- <!-- <input type="button" ng-click="app.addMovement()"><br>
- {{app.workout}} -->
 
- <!-- <input type="button" ng-click="app.firstWorkout()"> -->
- <button class="btn waves-effect waves-light green lighten-3" ng-click="app.firstWorkout()">Confirm</button>
- <!-- ng-show="(app.myForm.$valid)" -->
-
-<!-- <p ng-show="(app.myForm.$valid)"> {{ app.movements }}</p> -->
+<!-- <input type="text" ng-model="move.name" placeholder="Exercise"> -->
+<!-- <input type="text" ng-model="move.reps" placeholder="Reps" >
+<input type="text" ng-model="move.weight" placeholder="Weight/kg" >
+<input type="text" ng-model="move.sets" placeholder="Sets" >
+<input type="text" ng-model="move.time" placeholder="Time" > -->
 
 </form>
 
-<select ng-hide="chest"class="black" ng-model="app.exercise" ng-options="exercise as exercise for exercise in app.exercises">
-</select>
-<h2>{{ app.exercise }}</h2>
+<button class="btn waves-effect waves-light green lighten-3" ng-click="move.addExercise()">Add</button>
 
-
-  <li ng-click="chest=true" class="collection-item" ng-model="app.chest"><div>Chest<a href="#!" ui-sref="createWorkout.addMovement" ng-click="chest=true" <i class="material-icons">send</i></a></li></div>
-<select ng-show="chest" class="black" ng-model="app.chest" ng-options="chest as chest for chest in app.chests">
-</select>
-<h2>{{ app.chest }}</h2>
-
-<p ng-show="chest">True</p>
-
-<button class="btn waves-effect waves-light green lighten-3" ng-click="app.firstWorkout()">Confirm</button>
-<!-- <p ng-show="(app.myForm.$valid)"> {{ app.movements }}</p> -->
+<button class="btn waves-effect waves-light green lighten-3" ng-click="move.saved()">Save</button>

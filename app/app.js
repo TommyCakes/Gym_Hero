@@ -24,8 +24,9 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate'])
         templateUrl: 'app/states/chooseMuscleGroup.html'
       })
       .state('createWorkout.addMovement', {
-        url:'/addMovement',
-        templateUrl: 'app/states/addMovement.html'
+        url:'/addMovement/:muscle',
+        templateUrl: 'app/states/addMovement.html',
+        controller: 'MoveCtrl as move'
       })
     .state('previousWorkout', {
       url: '/previousWorkout',
