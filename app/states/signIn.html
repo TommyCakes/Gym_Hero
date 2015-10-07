@@ -13,13 +13,14 @@
       <div class="col s12 m4">
       <div class="center-btn valign center">
         <h4>Hello! Please login below</h4>
-        
+
         <button class="btn waves-effect waves-light blue lighten-3" ng-click="app.login()">
           <i class="material-icons left">https</i>
           <a class="white-text">Login with Twitter?</a></button>
-          <!-- <button class="btn waves-effect waves-light blue lighten-3" ng-click="app.logout()">
+
+          <button ng-if="app.user" class="btn waves-effect waves-light blue lighten-3" ng-click="app.logout()">
             <i class="material-icons left">https</i>
-            <a  class="white-text">Logout</a></button> -->
+            <a  class="white-text">Logout</a></button>
     </div>
     </div>
     </div>

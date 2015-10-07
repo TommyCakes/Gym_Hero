@@ -4,10 +4,9 @@ angular.module('workoutApp')
     var ref = new Firebase(firebaseUrl)
     var authData = ref.getAuth();
     console.log(authData)
-
-    var users = firebaseUrl + 'users'
-    var userRef = new Firebase(users)
-    this.users = $firebaseArray(userRef)
+    // var users = firebaseUrl + 'users'
+    // var userRef = new Firebase(users)
+    // this.users = $firebaseArray(userRef)
     var self = this;
     //get user login
     return {
@@ -15,17 +14,9 @@ angular.module('workoutApp')
         ref.authWithOAuthPopup("twitter", function(error, authData) {
           if (error) {
             console.log("Login Failed!", error);
-          } else {
+          }
+          else {
             console.log("Authenticated successfully with payload:", authData);
-            self.uid = [authData.uid];
-            self.proPic = [authData.twitter.profileImageURL];
-            self.displayName = [authData.twitter.displayName];
-
-            self.users.$add({
-              uid: self.uid,
-              name: self.displayName,
-              picture: self.proPic
-            })
             // console.log(self.proPic)
           }
           // console.log("your id is number: " + self.uid);
@@ -34,7 +25,25 @@ angular.module('workoutApp')
       logout: function () {
         ref.unauth()
         console.log('Logged Out!')
+      },
+      onAuth: function (cb) {
+        ref.onAuth(function(data) {
+          cb(updateUser(data))
+        })
       }
   }
-
+  function updateUser (userData) {
+    if (userData === null) {
+      return false
+    }
+    var user = ref.child('users').child(userData.uid)
+    user.update({
+      uid: userData.uid,
+      displayName: userData.twitter.displayName,
+      picture: userData.twitter.profileImageURL,
+      twitterObj: userData.twitter
+    })
+    user = $firebaseObject(user)
+    return user;
+  }
 })

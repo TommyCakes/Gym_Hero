@@ -21,10 +21,11 @@ body {
    display:block;
  }
  span {
-   font-size:.5em;
+   font-size:1em;
+   /*color:blue;*/
  }
  #welcome {
-      margin-top: 10px;
+      /*margin-top: 10px;*/
  }
  .section {
    padding-bottom: 0;
@@ -33,13 +34,15 @@ body {
     height: 70px;
     line-height: 26px;
     background-color: #26a69a;
-    /*letter-spacing: 0.8px;*/
 }
 #disabled{
     background-color: #26a69a;
 }
-img {
+#user {
   border-radius: 50%;
+  margin: 0 auto;
+  width: 60px;
+  height: auto;
 }
 footer {
   height:100vh:

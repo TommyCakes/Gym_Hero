@@ -11,16 +11,24 @@
 </head>
 <body ng-controller="HomeCtrl as app">
 
-</nav>
 <nav class="black">
   <div class="nav-wrapper container">
     <a ui-sref="home" class="brand-logo center-text">Gym Hero</a>
+
     <ul id="nav-mobile">
-      <!-- class="right hide-on-med-and-down" -->
       <li><a ui-sref="signIn" class="center grey-text ">SIGN IN</a></li>
-      <!-- <li><a ui-sref="settings" class="right grey-text ">SETTINGS</a></li> -->
     </ul>
+
+    <ul class="right">
+          <li>
+            <a ui-sref="#" ng-click="app.logout()">
+            <i class="tiny material-icons right">https</i>
+          </a>
+        </li>
+        </ul>
+
   </div>
+      <!-- <li><a ui-sref="settings" class="right grey-text ">SETTINGS</a></li> -->
 </nav>
 
 

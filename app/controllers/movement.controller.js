@@ -50,7 +50,7 @@ angular.module('workoutApp')
   this.addExercise = function () {
     // self.userWorkout.push(this.exercises);
     self.userWorkout.push(self.selected);
-    Materialize.toast('Movement added!', 2000)
+    Materialize.toast('Movement added!' , 2000)
       console.log(self.selected)
   }
 

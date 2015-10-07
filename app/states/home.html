@@ -4,11 +4,10 @@
   <div class="row">
     <div class="center-btn valign center">
     <div class="col s12 m4">
-      <h5 id="welcome" class="valign center white-text">WELCOME user!
-        <img src="http://www.fillmurray.com/g/50/50" alt="">
+      <h5 id="welcome" class="valign center white-text">WELCOME <span>{{app.user.displayName}}!</span>
        </h5>
-
-      <div class="divider"></div>
+         <img id="user" ng-src="{{app.user.picture}}" alt="">
+      <!-- <div class="divider"></div> -->
       <div id="welcome" class="section">
       <div class="col s12 m4">
         <button class="waves-effect waves-light btn-large" ui-sref="createWorkout.chooseMuscleGroup">

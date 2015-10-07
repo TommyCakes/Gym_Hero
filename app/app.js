@@ -12,7 +12,7 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate'])
       templateUrl: 'app/states/signIn.html'
     })
     .state('home', {
-      url: '/home',
+      url: '/',
       templateUrl: 'app/states/home.html'
     })
     .state('createWorkout', {
