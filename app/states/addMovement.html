@@ -1,5 +1,5 @@
-
 <form name="myForm">
+  <h5>Please choose you exercise from the drop down below</h5>
   <select class="black" ng-model="move.selected" ng-options="move as move for move in move.filtered">
   </select>
   <h2>{{ move.selected}}</h2>
@@ -13,6 +13,7 @@
 
 </form>
 
-<button class="btn waves-effect waves-light green lighten-3" ng-click="move.addExercise()">Add</button>
+<button class="btn waves-effect waves-light green lighten-3" ng-click="move.addExercise()">Add Movement</button>
+<button class="btn waves-effect waves-light purple lighten-3" ng-click="move.saved()">Save</button>
 
-<button class="btn waves-effect waves-light green lighten-3" ng-click="move.saved()">Save</button>
+<!-- <button class="btn waves-effect waves-light green lighten-3" "ng-show="myform.$valid" ui-sref="createWorkout.chooseMuscleGroup">Go Back?</button> -->

@@ -50,6 +50,7 @@ angular.module('workoutApp')
   this.addExercise = function () {
     // self.userWorkout.push(this.exercises);
     self.userWorkout.push(self.selected);
+    Materialize.toast('Movement added!', 2000)
       console.log(self.selected)
   }
 
@@ -59,46 +60,28 @@ angular.module('workoutApp')
         date: Date.now(),
         movements: this.userWorkout,
       })
+      swal(
+        "Great!",
+      "Your workout has been saved!",
+      "success")
       this.userWorkout=[ ];
     };
-
-
-  //try this first
-  // this.savedWorkout = function () {
-  //   self.movements.push
-  // }
-
-
-  //$add {
-  // date: ''
-  // movements: 'array we created localy' /this.userWorkout
-  // }
-
-
-
-// this.firstWorkout = function () {
-//   // self.movements.$add ({
-//     // self.userWorkout.$add
-//   name: self.chest,
-//   weight: self.weight + " kg",
-//   reps: self.reps,
-//   sets: self.sets,
-//   time: self.time,
-//   date: Date.now()
-// });
-// self.chest = "",
-// self.weight = "",
-// self.reps = "",
-// self.sets = "",
-// self.time = "",
-//
-// console.log(this.movements)
-// };
-
-// this.userWorkout = [ ]
-//
-// this.savedWorkout = function () {
-//   self.userWorkout.push(self.movements);
-//   console.log(this.userWorkout)
-// }
 })
+
+    //
+    // this.firstWorkout = function () {
+    //   self.movements.$add ({
+    //   name: self.chest,
+    //   weight: self.weight + " kg",
+    //   reps: self.reps,
+    //   sets: self.sets,
+    //   time: self.time,
+    //   date: Date.now()
+    // });
+    // self.chest = "",
+    // self.weight = "",
+    // self.reps = "",
+    // self.sets = "",
+    // self.time = "",
+    //
+    // console.log(this.movements)

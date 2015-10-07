@@ -17,7 +17,7 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate'])
     })
     .state('createWorkout', {
       url: '/createWorkout',
-      templateUrl: 'app/states/createWorkout.html'
+      templateUrl: 'app/states/createWorkout.html',
     })
       .state('createWorkout.chooseMuscleGroup', {
         url: '/chooseMuscleGroup',
