@@ -11,31 +11,56 @@
 </head>
 <body ng-controller="HomeCtrl as app">
 
+  <!-- <nav>
+    <div class="black nav-wrapper">
+      <a href="#!" class="brand-logo">Logo</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+    </div>
+  </nav> -->
+
 <nav class="black">
   <div class="nav-wrapper container">
-    <a ui-sref="home" class="brand-logo center-text">Gym Hero</a>
+    <a ng-if="app.user" ui-sref="home" class="brand-logo center-text">Gym Hero</a>
+    <a ng-if="!app.user" ui-sref="signIn" class="brand-logo center-text">Gym Hero</a>
 
-    <ul id="nav-mobile">
-      <li><a ui-sref="signIn" class="center grey-text ">SIGN IN</a></li>
+    <ul id="nav-mobile" class="left">
+      <li>
+        <a ng-if="!app.user" ui-sref="signIn" class="center grey-text ">
+        <i id="lock" class="tiny material-icons left grey-text">lock_outline</i>
+        LOG IN
+      </a>
+      </li>
+      <li>
+        <a ng-if="app.user" ui-sref="signIn" class="center grey-text" ui-sref="#" ng-click="app.logout()">
+          <i id="lock" class="tiny material-icons left grey-text">lock_open</i>
+          LOG OUT
+        </a>
+      </li>
     </ul>
 
-    <ul class="right">
-          <li>
-            <a ui-sref="#" ng-click="app.logout()">
-            <i class="tiny material-icons right">https</i>
-          </a>
+      <ul id="settings" class="right">
+            <li>
+            <a ui-sref="#" ng-click="app.settings()">
+            <i class="tiny material-icons right grey-text">settings</i>
+            </a>
         </li>
         </ul>
-
   </div>
-      <!-- <li><a ui-sref="settings" class="right grey-text ">SETTINGS</a></li> -->
 </nav>
 
-
-
  <div id="app-views" ui-view></div>
-
-
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
@@ -48,6 +73,7 @@
 <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
 <script src="app/app.js"></script>
 <script src="app/services/authentication.js"></script>
+<script src="app/services/userWorkouts.js"></script>
 <script src="app/controllers/home.controller.js"></script>
 <script src="app/controllers/movement.controller.js"></script>
 

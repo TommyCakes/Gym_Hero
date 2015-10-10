@@ -1,9 +1,17 @@
+'use strict';
+
+
 angular.module('workoutApp')
-.controller('MoveCtrl', function($firebaseObject, $firebaseArray, firebaseUrl, $stateParams) {
+.controller('MoveCtrl', function($firebaseObject, $firebaseArray, firebaseUrl, $stateParams, Auth, userWorkouts) {
   var self = this;
   console.log($stateParams.muscle);
-  var random = $stateParams.muscle
-  console.log(random)
+  var muscle = $stateParams.muscle
+  console.log(muscle)
+
+
+  var movements = firebaseUrl + 'movements'
+  var moveRef = new Firebase(movements)
+  this.movements = $firebaseArray(moveRef)
 
   self.chests = ['Bench press', 'Incline Bench Press'];
   self.legs = ['Leg press', 'Squat'];
@@ -11,25 +19,28 @@ angular.module('workoutApp')
   self.shoulders = ['Miltary Press', 'Front raise'];
   self.abs = ['Situps', 'Window cleaners'];
 
-  if (random == 'chest') {
+
+  this.chestClick = function () {
+    self.chestEx = 10;
+    console.log(self.chestEx);
+  }
+
+
+  if (muscle == 'chest') {
     self.filtered = self.chests;
   }
-  else if (random == 'legs') {
+  else if (muscle == 'legs') {
     self.filtered = self.legs;
   }
-  else if (random == 'arms') {
+  else if (muscle == 'arms') {
     self.filtered = self.arms;
   }
-  else if (random == 'shoulders') {
+  else if (muscle == 'shoulders') {
     self.filtered = self.shoulders;
   }
   else {
     self.filtered = self.abs;
   }
-
-  var movements = firebaseUrl + 'movements'
-  var moveRef = new Firebase(movements)
-  this.movements = $firebaseArray(moveRef)
 
   this.userWorkout = [ ]
 
@@ -43,17 +54,25 @@ angular.module('workoutApp')
 
     var move = self.selected;
 
-  this.selectedExercises = {
-    first: self.selected,
-  }
-
   this.addExercise = function () {
-    // self.userWorkout.push(this.exercises);
-    self.userWorkout.push(self.selected);
+    this.selectedExercises = {
+      name: self.selected,
+      reps: self.reps,
+      weight: self.weight,
+      sets: self.sets
+    }
+    self.userWorkout.push(this.selectedExercises);
+    // self.userWorkout.push(
+      // self.selected, self.weight);
     Materialize.toast('Movement added!' , 2000)
       console.log(self.selected)
+        console.log([this.userWorkout])
+        self.weight = "",
+        self.reps = "",
+        self.sets = "",
+        self.time = "",
+      self.added = true;
   }
-
 
     this.saved = function() {
       self.movements.$add ({
@@ -67,21 +86,3 @@ angular.module('workoutApp')
       this.userWorkout=[ ];
     };
 })
-
-    //
-    // this.firstWorkout = function () {
-    //   self.movements.$add ({
-    //   name: self.chest,
-    //   weight: self.weight + " kg",
-    //   reps: self.reps,
-    //   sets: self.sets,
-    //   time: self.time,
-    //   date: Date.now()
-    // });
-    // self.chest = "",
-    // self.weight = "",
-    // self.reps = "",
-    // self.sets = "",
-    // self.time = "",
-    //
-    // console.log(this.movements)

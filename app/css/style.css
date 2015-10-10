@@ -6,18 +6,39 @@ body {
   height:1vh;
 }
 .brand-logo {
-  font-size:100em;
+  /*font-size:100em;*/
+}
+#lock {
+  top: 11px;
+  right: 30px;
+  position: relative;
+  margin-right: -30px;
+}
+#settings {
+  top:11px;
+  left:10px;
+  position: relative;
 }
 .intro {
   background:#BDBDBD;
   height:625px;
   padding-top:-700px;
 }
+.center {
+  text-align:center;
+}
 .center-btn {
   text-align: center;
   width:100%;
+  height:100px;
  }
- select {
+.blue.lighten-3 {
+   color:lightgoldenrodyellow;
+   margin-top:50px;
+   padding:20px;
+   height:70px;
+ }
+ select, input  {
    display:block;
  }
  span {
@@ -47,37 +68,14 @@ body {
 footer {
   height:100vh:
   background-color:black;
-}
- /*.intro {
-   height:100vh;
-   font-weight: 900;
-	text-transform: uppercase;
- }*/
-
-/*.container {
-  margin:0 auto;
-}
-h1 {
-   padding:10px
-}
-hr {
-  width:50%;
-  padding:10px
-}
-img {
-  border-radius: 60%;
-  border:1px solid lightgrey;
-  margin:0 auto;
-  display:block;
-  margin-bottom:70px;
-}
-.btn {
-  padding:10px 70px;
-}*/
-
-#app-views.ng-enter, #app-views.ng-leave, #workout-view.ng-enter, #workout-view.ng-leave     {
-    position:absolute; left:30px; right:30px;
-    transition:0.1s all ease; -moz-transition:0.2s all ease; -webkit-transition:0.2s all ease;
+}git
+#app-views.ng-enter, #app-views.ng-leave, #workout-view.ng-enter, #workout-view.ng-leave  {
+    position:absolute;
+    left:30px;
+    right:30px;
+    transition:0.1s all ease;
+    -moz-transition:0.2s all ease;
+    -webkit-transition:0.2s all ease;
 }
 
 #app-views.ng-enter, #workout-view.ng-enter               {
@@ -116,3 +114,30 @@ img {
     from    { -webkit-transform:translateX(200%); }
     to      { -webkit-transform: translateX(0); }
 }
+
+
+@media only screen and (min-width : 601px) and (max-width : 1260px) {
+.toast {
+width: 100%;
+border-radius: 0;} }
+
+@media only screen and (min-width : 1261px) {
+.toast {
+width: 100%;
+border-radius: 0; } }
+
+@media only screen and (min-width : 601px) and (max-width : 1260px) {
+#toast-container {
+min-width: 100%;
+bottom: 0%;
+top: 90%;
+right: 0%;
+left: 0%;} }
+
+@media only screen and (min-width : 1261px) {
+#toast-container {
+min-width: 100%;
+bottom: 0%;
+top: 90%;
+right: 0%;
+left: 0%; } }

@@ -1,3 +1,6 @@
+'use strict';
+
+
 angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate'])
   .constant('firebaseUrl', 'https://gym-hero.firebaseio.com/')
 
@@ -21,7 +24,11 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate'])
     })
       .state('createWorkout.chooseMuscleGroup', {
         url: '/chooseMuscleGroup',
-        templateUrl: 'app/states/chooseMuscleGroup.html'
+        templateUrl: 'app/states/chooseMuscleGroup.html',
+        params: {
+           chest: 5,  // default value of x is 5
+           y: 100 // default value of y is 100
+         }
       })
       .state('createWorkout.addMovement', {
         url:'/addMovement/:muscle',
@@ -31,6 +38,14 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate'])
     .state('previousWorkout', {
       url: '/previousWorkout',
       templateUrl: 'app/states/previousWorkout.html',
+    })
+    .state('previousWorkout.workouts', {
+      url: '/workouts',
+      templateUrl: 'app/states/workouts.html',
+    })
+    .state('previousWorkout.workout-list', {
+      url: '/workout-list',
+      templateUrl: 'app/states/workout-list.html',
     })
     .state('challenges', {
       url: '/challenges',

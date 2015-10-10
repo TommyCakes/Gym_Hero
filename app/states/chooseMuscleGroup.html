@@ -1,13 +1,22 @@
-<div class="intro lighten-1 z-depth-1">
-  <ul class="collection with-header">
-    <li class="collection-header"><h4>Choose your muscle group! </h4></li>
-      <li class="collection-item" ng-model="move.chest">
-        <div>Chest
-          <a ui-sref="createWorkout.addMovement({muscle: 'chest'})">
-            <i class="material-icons">send</i>
-        </a>
-      </div>
+<!-- <div class="intro lighten-1 z-depth-1"> -->
+  <ul class="lighten-1 z-depth-1 collection with-header">
+    <li class="collection-header">
+      <h5>Please Choose your muscle group! </h5>
     </li>
+
+    <button ng-click="move.chestClick()">Chest</button>
+
+
+
+
+<li class="collection-item" ng-model="move.chest">
+      <div>
+        <p>
+          <input name="group1" type="radio" id="test1" ui-sref="createWorkout.addMovement({muscle: 'chest'})" />
+          <label for="test1">Chest</label>
+        </p>
+    </div>
+  </li>
 
     <li class="collection-item" ng-model="move.legs">
       <div>Legs
@@ -41,4 +50,4 @@
     </div>
   </li>
 </ul>
-</div>
+<!-- </div> -->

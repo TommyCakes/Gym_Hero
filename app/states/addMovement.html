@@ -1,19 +1,28 @@
 <form name="myForm">
-  <h5>Please choose you exercise from the drop down below</h5>
+  <h5>Please choose your exercise from the drop down below</h5>
+
+  <!-- <div class="input-field col s12">
+    <select ng-model="move.selected" ng-options="move as move for move in move.filtered">
+    </select>
+    <label>Choose your exercises</label>
+    <h2>{{ move.selected }}</h2>
+</div>
+ -->
+
   <select class="black" ng-model="move.selected" ng-options="move as move for move in move.filtered">
   </select>
-  <h2>{{ move.selected}}</h2>
+  <h2>{{ move.selected }}</h2>
 
-
-<!-- <input type="text" ng-model="move.name" placeholder="Exercise"> -->
-<!-- <input type="text" ng-model="move.reps" placeholder="Reps" >
+<input type="text" ng-model="move.reps" placeholder="Reps" >
 <input type="text" ng-model="move.weight" placeholder="Weight/kg" >
 <input type="text" ng-model="move.sets" placeholder="Sets" >
-<input type="text" ng-model="move.time" placeholder="Time" > -->
+
 
 </form>
+
+<h2>   {{ move.muscle }}</h2>
 
 <button class="btn waves-effect waves-light green lighten-3" ng-click="move.addExercise()">Add Movement</button>
 <button class="btn waves-effect waves-light purple lighten-3" ng-click="move.saved()">Save</button>
 
-<!-- <button class="btn waves-effect waves-light green lighten-3" "ng-show="myform.$valid" ui-sref="createWorkout.chooseMuscleGroup">Go Back?</button> -->
+<button class="btn waves-effect waves-light green lighten-3" ng-if="move.added" ui-sref="createWorkout.chooseMuscleGroup">Go Back?</button>
