@@ -4,29 +4,64 @@
       <h5>Please Choose your muscle group! </h5>
     </li>
 
-    <button ng-click="move.chestClick()">Chest</button>
 
 
-
-
-<li class="collection-item" ng-model="move.chest">
+<li class="collection-item" ng-model="move.chests">
       <div>
-        <p>
-          <input name="group1" type="radio" id="test1" ui-sref="createWorkout.addMovement({muscle: 'chest'})" />
+        <p >
+          <input name="group1" type="checkbox" id="test1" ng-click="move.addMuscle('chests')"/>
           <label for="test1">Chest</label>
         </p>
     </div>
   </li>
 
-    <li class="collection-item" ng-model="move.legs">
-      <div>Legs
-        <a ui-sref="createWorkout.addMovement({muscle: 'legs'})">
-          <i class="material-icons">send</i>
-      </a>
-    </div>
-  </li>
+    <li class="collection-item" ng-model="move.legs" >
+          <div>
+            <p >
+              <input name="group2" type="checkbox" id="test2" ng-click="move.addMuscle('legs')"/>
+              <label for="test2">Legs</label>
+            </p>
+        </div>
+      </li>
 
-    <li class="collection-item" ng-model="move.arms">
+
+  <li class="collection-item" ng-model="move.arms" >
+        <div>
+          <p >
+            <input name="group3" type="checkbox" id="test3" ng-click="move.addMuscle('arms')"/>
+            <label for="test3">Arms</label>
+          </p>
+      </div>
+    </li>
+
+    <li class="collection-item" ng-model="move.shoulders" >
+          <div>
+            <p >
+              <input name="group4" type="checkbox" id="test4" ng-click="move.addMuscle('shoulders')"/>
+              <label for="test4">Shoulders</label>
+            </p>
+        </div>
+      </li>
+
+      <li class="collection-item" ng-model="move.abs" >
+            <div>
+              <p >
+                <input name="group5" type="checkbox" id="test5" ng-click="move.addMuscle('abs')"/>
+                <label for="test5">Abs</label>
+              </p>
+          </div>
+        </li>
+
+
+
+    <h3>{{ move.selectedMuscles }}</h3>
+
+    <button ui-sref="createWorkout.addMovement({muscles: move.selectedMuscles})">NEXT</button>
+
+
+
+
+    <!-- <li class="collection-item" ng-model="move.arms">
       <div>Arms
         <a ui-sref="createWorkout.addMovement({muscle: 'arms'})">
           <i class="material-icons">send</i>
@@ -49,5 +84,5 @@
       </a>
     </div>
   </li>
-</ul>
+</ul> -->
 <!-- </div> -->

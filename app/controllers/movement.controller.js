@@ -4,43 +4,37 @@
 angular.module('workoutApp')
 .controller('MoveCtrl', function($firebaseObject, $firebaseArray, firebaseUrl, $stateParams, Auth, userWorkouts) {
   var self = this;
-  console.log($stateParams.muscle);
-  var muscle = $stateParams.muscle
-  console.log(muscle)
+  var muscles = $stateParams.muscles
+  // console.log(muscles)
 
 
   var movements = firebaseUrl + 'movements'
   var moveRef = new Firebase(movements)
   this.movements = $firebaseArray(moveRef)
 
+  //body parts
   self.chests = ['Bench press', 'Incline Bench Press'];
   self.legs = ['Leg press', 'Squat'];
   self.arms = ['Dumbell curl', 'Skull crushers'];
   self.shoulders = ['Miltary Press', 'Front raise'];
   self.abs = ['Situps', 'Window cleaners'];
 
+  this.selectedMuscles = [ ]
+  this.muscleList = { }
 
-  this.chestClick = function () {
-    self.chestEx = 10;
-    console.log(self.chestEx);
-  }
-
-
-  if (muscle == 'chest') {
-    self.filtered = self.chests;
-  }
-  else if (muscle == 'legs') {
-    self.filtered = self.legs;
-  }
-  else if (muscle == 'arms') {
-    self.filtered = self.arms;
-  }
-  else if (muscle == 'shoulders') {
-    self.filtered = self.shoulders;
-  }
-  else {
-    self.filtered = self.abs;
-  }
+  //Select muscle function
+  this.addMuscle = function(muscle) {
+    self.selectedMuscles.push(muscle);
+    console.log(self.selectedMuscles)
+      console.log('your selected muscle ' + muscle)
+      if (muscle === 'chests') {
+        self.muscleList.chest = self.chests;
+      }
+      else {
+        self.muscleList.legs = self.legs;
+      }
+      console.log('this is muscle in the object', self.muscleList )
+  };
 
   this.userWorkout = [ ]
 
@@ -62,8 +56,6 @@ angular.module('workoutApp')
       sets: self.sets
     }
     self.userWorkout.push(this.selectedExercises);
-    // self.userWorkout.push(
-      // self.selected, self.weight);
     Materialize.toast('Movement added!' , 2000)
       console.log(self.selected)
         console.log([this.userWorkout])
@@ -77,7 +69,7 @@ angular.module('workoutApp')
     this.saved = function() {
       self.movements.$add ({
         date: Date.now(),
-        movements: this.userWorkout,
+        exercises: this.userWorkout,
       })
       swal(
         "Great!",

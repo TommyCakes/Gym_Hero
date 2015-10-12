@@ -68,24 +68,33 @@ body {
 footer {
   height:100vh:
   background-color:black;
-}git
-#app-views.ng-enter, #app-views.ng-leave, #workout-view.ng-enter, #workout-view.ng-leave  {
+}
+#app-views.ng-enter, #app-views.ng-leave  {
     position:absolute;
     left:30px;
     right:30px;
+    transition:0.5s all ease;
+    -moz-transition:0.5s all ease;
+    -webkit-transition:0.5s all ease;
+}
+#workout-view {
     transition:0.1s all ease;
     -moz-transition:0.2s all ease;
     -webkit-transition:0.2s all ease;
 }
 
-#app-views.ng-enter, #workout-view.ng-enter               {
+#app-views.ng-enter  {
     -webkit-animation:slideInRight 1s both ease;
     -moz-animation:slideInRight 1s both ease;
     animation:slideInRight 1s both ease;
 }
-
+#app-views.ng-enter #workout-view   {
+    -webkit-animation:slideInDown 0.8s both ease;
+    -moz-animation:slideInDown 0.8s both ease;
+    animation:slideInDown 0.8s both ease;
+}
 /* leave animation */
-#app-views.ng-leave, #workout-view.ng-leave          {
+#app-views.ng-leave, #workout-view.ng-leave  {
     -webkit-animation:slideOutLeft 0.5s both ease;
     -moz-animation:slideOutLeft 0.5s both ease;
     animation:slideOutLeft 0.5s both ease;
@@ -113,6 +122,34 @@ footer {
 @-webkit-keyframes slideInRight {
     from    { -webkit-transform:translateX(200%); }
     to      { -webkit-transform: translateX(0); }
+}
+
+
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 

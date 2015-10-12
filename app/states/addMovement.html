@@ -1,17 +1,15 @@
 <form name="myForm">
   <h5>Please choose your exercise from the drop down below</h5>
 
-  <!-- <div class="input-field col s12">
-    <select ng-model="move.selected" ng-options="move as move for move in move.filtered">
-    </select>
-    <label>Choose your exercises</label>
-    <h2>{{ move.selected }}</h2>
-</div>
- -->
+  <!-- <select class="black" ng-model="move.selected" ng-options="move as move for move in move.filtered">
+  </select>
+  <h2>{{ move.selected }}</h2> -->
 
-  <select class="black" ng-model="move.selected" ng-options="move as move for move in move.filtered">
+  <select class="black" ng-model="move.muscleList" ng-options="muscle as muscle for muscle in move.muscleList">
   </select>
   <h2>{{ move.selected }}</h2>
+    <h3>{{ muscle }}</h3>
+
 
 <input type="text" ng-model="move.reps" placeholder="Reps" >
 <input type="text" ng-model="move.weight" placeholder="Weight/kg" >
@@ -19,8 +17,6 @@
 
 
 </form>
-
-<h2>   {{ move.muscle }}</h2>
 
 <button class="btn waves-effect waves-light green lighten-3" ng-click="move.addExercise()">Add Movement</button>
 <button class="btn waves-effect waves-light purple lighten-3" ng-click="move.saved()">Save</button>

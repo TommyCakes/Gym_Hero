@@ -25,15 +25,17 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate'])
       .state('createWorkout.chooseMuscleGroup', {
         url: '/chooseMuscleGroup',
         templateUrl: 'app/states/chooseMuscleGroup.html',
-        params: {
-           chest: 5,  // default value of x is 5
-           y: 100 // default value of y is 100
-         }
+        controller: 'MoveCtrl as move'
       })
       .state('createWorkout.addMovement', {
-        url:'/addMovement/:muscle',
+        url:'/addMovement',
         templateUrl: 'app/states/addMovement.html',
-        controller: 'MoveCtrl as move'
+        controller: 'MoveCtrl as move',
+        params: {
+          muscle: {
+            array: true
+          }
+        }
       })
     .state('previousWorkout', {
       url: '/previousWorkout',
