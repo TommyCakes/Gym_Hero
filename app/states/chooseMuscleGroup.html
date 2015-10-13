@@ -4,8 +4,6 @@
       <h5>Please Choose your muscle group! </h5>
     </li>
 
-
-
 <li class="collection-item" ng-model="move.chests">
       <div>
         <p >
@@ -52,37 +50,4 @@
           </div>
         </li>
 
-
-
-    <h3>{{ move.selectedMuscles }}</h3>
-
-    <button ui-sref="createWorkout.addMovement({muscles: move.selectedMuscles})">NEXT</button>
-
-
-
-
-    <!-- <li class="collection-item" ng-model="move.arms">
-      <div>Arms
-        <a ui-sref="createWorkout.addMovement({muscle: 'arms'})">
-          <i class="material-icons">send</i>
-      </a>
-    </div>
-  </li>
-
-    <li class="collection-item" ng-model="move.shoulders">
-      <div>Shoulders
-        <a ui-sref="createWorkout.addMovement({muscle: 'shoulders'})">
-          <i class="material-icons">send</i>
-      </a>
-    </div>
-  </li>
-
-    <li class="collection-item" ng-model="move.chest">
-      <div>Abs
-        <a ui-sref="createWorkout.addMovement({muscle: 'abs'})">
-          <i class="material-icons">send</i>
-      </a>
-    </div>
-  </li>
-</ul> -->
-<!-- </div> -->
+    <button ui-sref="createWorkout.addMovement({muscles: move.muscleList })">NEXT</button>

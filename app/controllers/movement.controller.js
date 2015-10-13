@@ -2,13 +2,14 @@
 
 
 angular.module('workoutApp')
-.controller('MoveCtrl', function($firebaseObject, $firebaseArray, firebaseUrl, $stateParams, Auth, userWorkouts) {
+.controller('MoveCtrl', function($firebaseObject, $firebaseArray, firebaseUrl, $stateParams, Auth) {
   var self = this;
-  var muscles = $stateParams.muscles
-  // console.log(muscles)
+  this.muscles = $stateParams.muscles
+  console.log(self.muscles)
+  var currentUser = Auth.getCurrentUser()
+  console.log(Auth.getCurrentUser())
 
-
-  var movements = firebaseUrl + 'movements'
+  var movements = firebaseUrl + 'movements/' + currentUser.$id
   var moveRef = new Firebase(movements)
   this.movements = $firebaseArray(moveRef)
 
@@ -24,14 +25,30 @@ angular.module('workoutApp')
 
   //Select muscle function
   this.addMuscle = function(muscle) {
+    self.chestChoice = false;
+    self.legsChoice = false;
+    self.shouldersChoice = false;
+    self.armsChoice = false;
+
     self.selectedMuscles.push(muscle);
     console.log(self.selectedMuscles)
       console.log('your selected muscle ' + muscle)
       if (muscle === 'chests') {
+        self.chestChoice = true;
         self.muscleList.chest = self.chests;
+        console.log(self.chestChoice);
+      }
+      else if (muscle === 'legs') {
+        self.muscleList.legs = self.legs;
+      }
+      else if (muscle === 'arms') {
+        self.muscleList.arms = self.arms
+      }
+      else if (muscle === 'shoulders') {
+        self.muscleList.shoulders = self.shoulders
       }
       else {
-        self.muscleList.legs = self.legs;
+        self.muscleList.abs = self.abs
       }
       console.log('this is muscle in the object', self.muscleList )
   };
@@ -46,7 +63,7 @@ angular.module('workoutApp')
     abs: self.abs,
   };
 
-    var move = self.selected;
+  var move = self.selected;
 
   this.addExercise = function () {
     this.selectedExercises = {
@@ -61,9 +78,7 @@ angular.module('workoutApp')
         console.log([this.userWorkout])
         self.weight = "",
         self.reps = "",
-        self.sets = "",
-        self.time = "",
-      self.added = true;
+        self.sets = ""
   }
 
     this.saved = function() {

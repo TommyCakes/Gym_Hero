@@ -32,22 +32,17 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate'])
         templateUrl: 'app/states/addMovement.html',
         controller: 'MoveCtrl as move',
         params: {
-          muscle: {
-            array: true
-          }
+          muscles: {}
         }
       })
     .state('previousWorkout', {
       url: '/previousWorkout',
       templateUrl: 'app/states/previousWorkout.html',
     })
-    .state('previousWorkout.workouts', {
-      url: '/workouts',
-      templateUrl: 'app/states/workouts.html',
-    })
     .state('previousWorkout.workout-list', {
       url: '/workout-list',
       templateUrl: 'app/states/workout-list.html',
+      controller: 'HistoryCtrl as history'
     })
     .state('challenges', {
       url: '/challenges',

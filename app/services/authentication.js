@@ -6,6 +6,7 @@ angular.module('workoutApp')
 
     var ref = new Firebase(firebaseUrl)
     var authData = ref.getAuth();
+    var currentUser = {};
     console.log(authData)
     // var users = firebaseUrl + 'users'
     // var userRef = new Firebase(users)
@@ -18,7 +19,7 @@ angular.module('workoutApp')
     if (time < 12) {
       self.morn = true;
     }
-    else if (time >= 12 && time <= 17) {
+    else if (time >= 12 && time >= 16) {
       self.morn = false;
       self.afternoon = true;
     }
@@ -60,6 +61,9 @@ angular.module('workoutApp')
         ref.onAuth(function(data) {
           cb(updateUser(data))
         })
+      },
+      getCurrentUser: function() {
+        return currentUser
       }
   }
   //Making sure current user is updated
@@ -75,6 +79,7 @@ angular.module('workoutApp')
       twitterObj: userData.twitter
     })
     user = $firebaseObject(user)
+    currentUser = user
     return user;
   }
 })

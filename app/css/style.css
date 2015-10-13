@@ -69,6 +69,16 @@ footer {
   height:100vh:
   background-color:black;
 }
+#workouts {
+  padding: 10px 2px;
+  border-bottom: 1px solid lightgrey;
+}
+.collection a.collection-item: hover {
+ background:white;
+}
+span {
+  color: grey;
+}
 #app-views.ng-enter, #app-views.ng-leave  {
     position:absolute;
     left:30px;
