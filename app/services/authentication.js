@@ -28,7 +28,6 @@ angular.module('workoutApp')
       self.afternoon = false;
       self.eve = true;
     }
-
     //Get user login
 
     return {

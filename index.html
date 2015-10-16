@@ -5,46 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gym-Hero</title>
  <link type="text/css" rel="stylesheet" href="app/css/materialize.min.css"  media="screen,projection"/>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
 <link rel="stylesheet" href="app/css/style.css">
+
+<!-- ****** faviconit.com favicons ****** -->
+	<link rel="shortcut icon" href="app/favinconit/favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="app/favinconit/favicon.ico">
+	<link rel="icon" type="imageapp/favinconit/png" sizes="196x196" href="app/favinconit/favicon-192.png">
+	<link rel="icon" type="imageapp/favinconit/png" sizes="160x160" href="app/favinconit/favicon-160.png">
+	<link rel="icon" type="imageapp/favinconit/png" sizes="96x96" href="app/favinconit/favicon-96.png">
+	<link rel="icon" type="imageapp/favinconit/png" sizes="64x64" href="app/favinconit/favicon-64.png">
+	<link rel="icon" type="imageapp/favinconit/png" sizes="32x32" href="app/favinconit/favicon-32.png">
+	<link rel="icon" type="imageapp/favinconit/png" sizes="16x16" href="app/favinconit/favicon-16.png">
+	<link rel="apple-touch-icon" href="app/favinconit/favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="app/favinconit/favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="app/favinconit/favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="app/favinconit/favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="app/favinconit/favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="app/favinconit/favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="app/favinconit/favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="app/favinconit/favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="app/favinconit/favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="app/favinconit/favicon-144.png">
+	<meta name="msapplication-config" content="app/favinconit/browserconfig.xml">
+	<!-- ****** faviconit.com favicons ****** -->
+
 </head>
 <body ng-controller="HomeCtrl as app">
 
-  <!-- <nav>
-    <div class="black nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-    </div>
-  </nav> -->
-
-<nav class="black">
+<nav>
   <div class="nav-wrapper container">
-    <a ng-if="app.user" ui-sref="home" class="brand-logo center-text">Gym Hero</a>
+    <a ng-if="app.user" ui-sref="home" class="brand-logo center-text" id="brand">Gym Hero</a>
     <a ng-if="!app.user" ui-sref="signIn" class="brand-logo center-text">Gym Hero</a>
 
     <ul id="nav-mobile" class="left">
       <li>
-        <a ng-if="!app.user" ui-sref="signIn" class="center grey-text ">
-        <i id="lock" class="tiny material-icons left grey-text">lock_outline</i>
+        <a ng-if="!app.user" ui-sref="signIn" class="center text ">
+        <i id="lock" class="tiny material-icons left text">lock_outline</i>
         LOG IN
       </a>
       </li>
       <li>
-        <a ng-if="app.user" ui-sref="signIn" class="center grey-text" ui-sref="#" ng-click="app.logout()">
-          <i id="lock" class="tiny material-icons left grey-text">lock_open</i>
+        <a ng-if="app.user" ui-sref="signIn" class="center text" ui-sref="#" ng-click="app.logout()">
+          <i id="lock" class="tiny material-icons left text">lock_open</i>
           LOG OUT
         </a>
       </li>
@@ -53,7 +59,7 @@
       <ul id="settings" class="right">
             <li>
             <a ui-sref="#" ng-click="app.settings()">
-            <i class="tiny material-icons right grey-text">settings</i>
+            <i class="tiny material-icons right text">settings</i>
             </a>
         </li>
         </ul>
@@ -66,6 +72,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-animate.js"></script>
+<script src="bower_components/angular-materialize/src/angular-materialize.js"></script>
 <script src="bower_components/firebase/firebase.js"></script>
 <script src="https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -73,7 +80,6 @@
 <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
 <script src="app/app.js"></script>
 <script src="app/services/authentication.js"></script>
-<script src="app/services/userWorkouts.js"></script>
 <script src="app/controllers/home.controller.js"></script>
 <script src="app/controllers/movement.controller.js"></script>
 <script src="app/controllers/history.controller.js"></script>

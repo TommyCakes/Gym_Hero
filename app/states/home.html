@@ -1,11 +1,12 @@
-<div class="intro lighten-1 z-depth-1">
+<div class="intro blue-grey lighten-5 z-depth-1">
+  <!-- blue-grey lighten-5 -->
   <div class="container valign wrapper">
   <div class="section">
   <div class="row">
     <div class="center-btn valign center">
     <div class="col s12 m12">
-      <h5 id="welcome" class="valign center white-text">
-        Welcome <span>{{app.user.displayName}}!</span></h5>
+      <h5 id="welcome" class="valign center grey-text">
+        Welcome <span>{{app.user.displayName | uppercase}}!</span></h5>
          <img id="user" ng-src="{{app.user.picture}}" alt="">
       <!-- <div class="divider"></div> -->
       <div id="welcome" class="section">
@@ -46,9 +47,23 @@
     <div class="section">
       <div class="col s12 m12">
           <div class="section">
-        <button id="disabled" class="waves-effect waves-light btn-large disabled" ui-sref="#">
-          <i class="material-icons">done</i>
-          Coming soon!</button>
+          <a id="disabled" class="waves-effect waves-light btn-large disabled" href='#demoModal' modal>
+            <i class="material-icons">done</i>
+            Coming Soon
+          </a>
+          <div class="col">
+    <div id="demoModal" class="modal">
+        <div class="modal-content">
+            <h4>Coming Soon!</h4>
+            <p>Your own pet RPG adventure</p>
+        </div>
+        <div class="modal-footer">
+            <a class=" modal-action modal-close waves-effect waves-green btn-flat">
+              Great!
+            </a>
+        </div>
+    </div>
+</div>
       </div>
     </div>
     </div>

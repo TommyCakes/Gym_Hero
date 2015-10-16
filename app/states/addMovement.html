@@ -1,39 +1,50 @@
+<div class="row">
+    <div class="col s12">
+        <h5>Please choose your exercise below</h5>
+        <ul class="tabs" tabs>
+            <li ng-show="move.muscles.chest.length" class="tab col s3"><a href="#test1">Chest</a></li>
+            <li ng-show="move.muscles.legs.length" class="tab col s3"><a class="active" href="#test2">Legs</a></li>
+            <li ng-show="move.muscles.shoulders.length" class="tab col s3"><a href="#test3">Shoulders</a></li>
+            <li ng-show="move.muscles.arms.length" class="tab col s3"><a href="#test4">Arms</a></li>
+        </ul>
+    </div>
+    <div id="test1" class="col s12">
+      <select class="white" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.chest">
+      </select>
+    </div>
+    <div id="test2" class="col s12">
+      <select class="white" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.legs">
+      </select>
+    </div>
+    <div id="test3" class="col s12">
+      <select class="white" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.shoulders">
+     </select>
+   </div>
+    <div id="test4" class="col s12">
+      <select class="white" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.arms">
+      </select>
+    </div>
+</div>
+
 <form name="myForm">
-  <h5>Please choose your exercise from the drop down below</h5>
-  <!--  {{ chest }} -->
+  <h2>{{ move.selected }}</h2>
 
-<!-- Should be able to only change the selects -->
+  <input type="text" ng-model="move.reps" placeholder="Reps" >
+  <input type="text" ng-model="move.weight" placeholder="Weight/kg" >
+  <input type="text" ng-model="move.sets" placeholder="Sets" >
 
-  <label for="">Chest<select class="black" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.chest">
-  </select></label>
-
-  <label for="">Legs<select class="black" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.legs">
-  </select></label>
-
-  <label for="">Arms<select class="black" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.arms">
-  </select></label>
-
-  <label for="">Shoulders<select class="black" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.shoulders">
-  </select></label>
-
-<h2>{{ move.selected }}</h2>
-
-<input type="text" ng-model="move.reps" placeholder="Reps" >
-<input type="text" ng-model="move.weight" placeholder="Weight/kg" >
-<input type="text" ng-model="move.sets" placeholder="Sets" >
-</form>
+  </form>
 
 <div id="addedMovements">
   <h4>Current Workout</h4>
-  <!-- ng show and ng hide -->
-  <div ng-show="move.muscles.chestChoice === true">
-    <p>CHEST</p>
-  </div>
-  <p ng-repeat="">
-  </p>
+    <span><p>{{move.userWorkout[0].name}}</p><p>{{move.userWorkout[0].weight}}</p></span>
+    <span><p>{{move.userWorkout[1].name}}</p><p>{{move.userWorkout[1].weight}}</p></span>
+    <span><p>{{move.userWorkout[2].name}}</p><p>{{move.userWorkout[2].weight}}</p></span>
+    <span><p>{{move.userWorkout[3].name}}</p><p>{{move.userWorkout[3].weight}}</p></span>
+    <span><p>{{move.userWorkout[4].name}}</p><p>{{move.userWorkout[4].weight}}</p></span>
 </div>
 
 <button class="btn waves-effect waves-light green lighten-3" ng-click="move.addExercise()">Add Movement</button>
 <button class="btn waves-effect waves-light purple lighten-3" ng-click="move.saved()">Save</button>
 
-<button class="btn waves-effect waves-light green lighten-3" ng-if="move.added" ui-sref="createWorkout.chooseMuscleGroup">Go Back?</button>
+<button class="btn waves-effect waves-light green lighten-3" ng-if="move.back" ui-sref="createWorkout.chooseMuscleGroup">Go Back?</button>

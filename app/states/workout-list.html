@@ -1,7 +1,7 @@
 <div class="collection" >
     <a  class="collection-item">
           <h3>Your Workouts</h3>
-        <div id="workouts" ng-repeat="move in app.movements | orderBy: 'created_at':true | limitTo: 10">
+        <div id="workouts" ng-repeat="move in history.userMoves | orderBy: 'created_at':true | limitTo: 10">
             Date: <span>{{ move.date | date:'medium' }}</span> <br>
             Exercise: <span>{{ move.movements[0].name}}</span> <br>
             Weight: <span>{{ move.movements[0].weight }} kg</span> <br>

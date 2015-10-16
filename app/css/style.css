@@ -2,12 +2,76 @@ body {
   text-align: center;
   color:lightgrey;
 }
+nav
+.brand-logo {
+  /*weight:500;*/
+  font-size:2.3em;
+  top:-5px;
+}
 #strip {
   height:1vh;
 }
-.brand-logo {
-  /*font-size:100em;*/
+
+/* Changing nav look */
+nav , .nav-wrapper {
+  background: #4EA6BF;
 }
+li , a:hover {
+  background:#4EA6BF;
+  -webkit-transition: opacity ease-out 0.5s;
+   -moz-transition: opacity ease-out 0.5s;
+   -o-transition: opacity ease-out 0.5s;
+   transition: opacity ease-out 0.5s;
+}
+/* Test css for new sign in page*/
+#circle {
+  position:relative;
+  margin:0 auto;
+  top:150px;
+  height:150px;
+  width:150px;
+}
+img {
+  margin:0 auto;
+}
+#greeting {
+  position:absolute;
+  width:100%;
+  top:150px;
+  color:black;
+}
+#sign-in {
+  position:absolute;
+  width:100%;
+  bottom:90px;
+  color:lightgrey;
+}
+.collection {
+  position:absolute;
+  width:100%;
+  bottom:-15px;
+  float:left;
+  color:black;
+}
+.collection>li:hover {
+  color:#26a69a;
+  -webkit-transition: color ease-out 0.5s;
+   -moz-transition: color ease-out 0.5s;
+   -o-transition: color ease-out 0.5s;
+   transition: color ease-out 0.5s;
+   cursor:pointer;
+}
+.fa-twitter {
+  color:lightblue;
+  padding:1px;
+}
+.fa-facebook {
+  color: #2A31FF;
+  padding:1px;
+}
+
+/* Test css for new sign in page*/
+
 #lock {
   top: 11px;
   right: 30px;
@@ -16,7 +80,7 @@ body {
 }
 #settings {
   top:11px;
-  left:10px;
+  left:5px;
   position: relative;
 }
 .intro {
@@ -40,6 +104,10 @@ body {
  }
  select, input  {
    display:block;
+ }
+ .tabs
+ .tab a {
+   color:white;
  }
  span {
    font-size:1em;

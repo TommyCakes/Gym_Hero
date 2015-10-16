@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate'])
+angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate', 'ui.materialize'])
   .constant('firebaseUrl', 'https://gym-hero.firebaseio.com/')
 
   .config(function($stateProvider, $urlRouterProvider) {
