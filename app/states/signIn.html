@@ -27,8 +27,22 @@
 </div> -->
 
 <div class="container">
-<div id="circle">
+  <div ng-if="app.loading">
+    <div class='triangles'>
+    <div class='tri invert'></div>
+    <div class='tri invert'></div>
+    <div class='tri'></div>
+    <div class='tri invert'></div>
+    <div class='tri invert'></div>
+    <div class='tri'></div>
+    <div class='tri invert'></div>
+    <div class='tri'></div>
+    <div class='tri invert'></div>
+  </div>
+</div>
+<div ng-hide="app.loading" id="circle" >
   <h5 id="greeting">Welcome to Gym Hero!</h5>
+  <h5 ng-if="app.loading" id="greeting">Signing In...</h5>
   <img src="app/Logo.png" alt="">
   </div>
 </div>

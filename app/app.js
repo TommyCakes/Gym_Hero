@@ -42,10 +42,13 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate', 'ui.material
     .state('previousWorkout.workout-list', {
       url: '/workout-list',
       templateUrl: 'app/states/workout-list.html',
-      controller: 'HistoryCtrl as history'
+      // controller: 'HistoryCtrl as history'
+        controller: 'MoveCtrl as move',
+
     })
     .state('challenges', {
       url: '/challenges',
       templateUrl: 'app/states/challenges.html',
+      controller: 'MoveCtrl as move',
     })
   })

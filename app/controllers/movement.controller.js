@@ -12,6 +12,7 @@ angular.module('workoutApp')
   var movements = firebaseUrl + 'movements/' + currentUser.$id
   var moveRef = new Firebase(movements)
   this.movements = $firebaseArray(moveRef)
+    console.log(self.movements)
 
   //body parts
   self.chests = ['Bench press', 'Incline Bench Press'];
@@ -81,6 +82,18 @@ angular.module('workoutApp')
   self.count = 0;
 
   this.addExercise = function () {
+    //records to break;
+    self.recordWeight = 90;
+    self.recordReps = 50
+    self.recordReps = 100
+    if (self.weight > self.recordWeight) {
+      Materialize.toast('Highest weight achieved!!' , 2000)
+    }
+    else {
+    }
+    self.recordWeight =
+    console.log(self.recordWeight)
+
     this.selectedExercises = {
       name: self.selected,
       reps: self.reps,
@@ -91,6 +104,7 @@ angular.module('workoutApp')
     //Displaying selected workouttt
     self.chosen = {}
     self.chosen.move = self.selected;
+
     console.log(self.chosen.move = self.selected);
 
     self.userWorkout.push(this.selectedExercises);

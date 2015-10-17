@@ -4,7 +4,7 @@
 angular.module('workoutApp')
   .controller('HomeCtrl', function($firebaseObject, $firebaseArray, $location, firebaseUrl, Auth, $stateParams, $state ){
      var self = this;
-     
+
      this.fireLink = firebaseUrl;
      var ref = new Firebase(firebaseUrl)
 
@@ -17,10 +17,15 @@ angular.module('workoutApp')
     this.users = $firebaseArray(userRef)
 
     //Calling login function
-    this.login = Auth.login
+    this.login = function() {
+      self.loading = true;
+      Auth.login();
+    }
+
     Auth.onAuth(function(user) {
       self.user = user
       // console.log(self.user)
+      self.loading = false;
       if (user === false) {
         return $location.path('/signIn')
       }

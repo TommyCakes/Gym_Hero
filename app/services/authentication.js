@@ -8,9 +8,6 @@ angular.module('workoutApp')
     var authData = ref.getAuth();
     var currentUser = {};
     console.log(authData)
-    // var users = firebaseUrl + 'users'
-    // var userRef = new Firebase(users)
-    // this.users = $firebaseArray(userRef)
 
     //Welcome messages, morn, noon and night
     var self = this;
@@ -32,6 +29,7 @@ angular.module('workoutApp')
 
     return {
       login: function () {
+        //redirect
         ref.authWithOAuthPopup("twitter", function(error, authData) {
           if (error) {
             console.log("Login Failed!", error);
