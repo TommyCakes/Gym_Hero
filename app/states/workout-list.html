@@ -1,17 +1,15 @@
-<div class="collection">
+<div id="workout-collection" class="collection">
     <a  class="collection-item">
 
-        <div id="workouts" ng-repeat="move in move.movements | orderBy: 'created_at':true | limitTo: 4">
+        <div id="workouts" ng-repeat="move in move.movements | orderBy: 'created_at':true | limitTo: 3">
             Date: <span>{{ move.date | date:'medium' }}</span> <br>
-            Exercise: <span>{{ move.exercises[0].name}}</span> <br>
-            Weight: <span>{{ move.exercises[0].weight }} kg</span> <br>
-            Reps: <span> {{ move.exercises[0].reps }} </span><br>
-            Sets: <span>{{ move.exercises[0].sets }}</span> <br>
+          <div ng-repeat="exercises in move.exercises">
+            Exercise: <span>{{ exercises.name}}</span> <br>
+            Weight: <span>{{ exercises.weight }} kg</span> <br>
+            Reps: <span> {{ exercises.reps }} </span><br>
+            Sets: <span>{{ exercises.sets }}</span> <br>
+          </div>
 
-            Exercise: <span>{{ move.exercises[1].name}}</span> <br>
-            Weight: <span>{{ move.exercises[1].weight }} kg</span> <br>
-            Reps: <span> {{ move.exercises[1].reps }} </span><br>
-            Sets: <span>{{ move.exercises[1].sets }}</span> <br>
           </div>
     </a>
 </div>

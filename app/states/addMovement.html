@@ -1,8 +1,19 @@
 <div class="row">
+
+
+  <input name="group1" type="radio" id="test1" ng-click="move.selectedMood('bad')"/>
+  <label for="test1"><i class="fa fa-frown-o"></i></label>
+
+  <input name="group1" type="radio" id="test2" ng-click="move.selectedMood('ok')"/>
+  <label for="test2"><i class="fa fa-meh-o"></i></label>
+
+  <input class="with-gap" name="group1" type="radio" id="test3" ng-click="move.selectedMood('good')"/>
+  <label for="test3"><i class="fa fa-smile-o"></i></label>
+
+
     <div class="col s12">
         <h5>Please choose your exercise below</h5>
         <a twitter data-text="" data-url="http://0.0.0.0:8080/#/signIn"></a>
-
         <ul class="tabs" tabs>
             <li ng-show="move.muscles.chest.length" class="tab col s3"><a href="#test1">Chest</a></li>
             <li ng-show="move.muscles.legs.length" class="tab col s3"><a class="active" href="#test2">Legs</a></li>
@@ -11,7 +22,7 @@
         </ul>
     </div>
     <div id="test1" class="col s12">
-    
+
       <select class="white" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.chest">
          <option value=""> Chest Exercises </option>
       </select>
@@ -44,6 +55,12 @@
 
 <div id="addedMovements">
   <h4>Current Workout</h4>
+
+<!--Rating HMTL -->
+    <!-- ng-if="move.rating" -->
+
+<!--Rating HMTL END -->
+
     <span><p>{{move.userWorkout[0].name}}</p><p>{{move.userWorkout[0].weight}}</p></span>
     <span><p>{{move.userWorkout[1].name}}</p><p>{{move.userWorkout[1].weight}}</p></span>
     <span><p>{{move.userWorkout[2].name}}</p><p>{{move.userWorkout[2].weight}}</p></span>
@@ -53,5 +70,4 @@
 
 <button class="btn waves-effect waves-light green lighten-3" ng-click="move.addExercise()">Add Movement</button>
 <button class="btn waves-effect waves-light purple lighten-3" ng-click="move.saved()">Save</button>
-
 <button class="btn waves-effect waves-light green lighten-3" ng-if="move.back" ui-sref="createWorkout.chooseMuscleGroup">Go Back?</button>

@@ -68,6 +68,20 @@ angular.module('workoutApp')
     if (userData === null) {
       return false
     }
+      var records = ref.child('records').child(userData.uid)
+
+      records.on('value', function(snapshot) {
+        if (snapshot.exists() === false) {
+          records.update({
+            benchPress: 75,
+            squat: 40,
+          })
+          console.log("first time records")
+        }
+      });
+
+    // }
+
     var user = ref.child('users').child(userData.uid)
       user.update({
       uid: userData.uid,

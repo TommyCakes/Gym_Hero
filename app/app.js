@@ -1,12 +1,13 @@
 'use strict';
 
 
-angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate', 'ui.materialize'])
+angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate', 'ui.materialize', 'ui.bootstrap'])
   .constant('firebaseUrl', 'https://gym-hero.firebaseio.com/')
 
   .config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/signIn');
+    // $urlRouterProvider.otherwise('/signIn');
+    $urlRouterProvider.otherwise('/createWorkout.addMovement');
     $stateProvider
 
     //SignIn view

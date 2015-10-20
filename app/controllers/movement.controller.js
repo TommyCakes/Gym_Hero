@@ -14,6 +14,14 @@ angular.module('workoutApp')
   this.movements = $firebaseArray(moveRef)
     console.log(self.movements)
 
+
+    //try service or factory
+    //if passed an id it makes this call to refenrence
+    //look at snapshot docs
+    //record ref
+    //var records = ...
+
+
   //body parts
   self.chests = ['Bench press', 'Incline Bench Press'];
   self.legs = ['Leg press', 'Squat'];
@@ -81,32 +89,60 @@ angular.module('workoutApp')
   var chosen = self.chosen;
   self.count = 0;
 
-  this.addExercise = function () {
-    //records to break;
-    self.recordWeight = 90;
-    self.recordReps = 50
-    self.recordReps = 100
-    if (self.weight > self.recordWeight) {
-      Materialize.toast('Highest weight achieved!!' , 2000)
+  //rating logic
+  self.rating = false;
+  self.mood = "";
+  self.bad = "";
+  self.good = "";
+
+  this.selectedMood = function (mood) {
+    if (mood === 'bad') {
+      self.bad = "bad";
+      self.ok = "";
+      self.good = "";
+      self.mood = self.bad;
+        console.log(self.mood + " is sad")
+    }
+    else if (mood === 'ok') {
+      self.bad = "";
+      self.ok = "ok";
+      self.good = "";
     }
     else {
+    self.bad = "";
+    self.ok = "";
+    self.good = "good";
+    self.mood = self.good;
+      console.log(self.mood + " is happy")
     }
-    self.recordWeight =
-    console.log(self.recordWeight)
+  }
+  //end of rating logic
 
+  //record logic
+  self.recordWeight = 90;
+  self.recordReps = 50
+
+  self.benchPressWeight
+  //
+  // if (self.weight > self.recordWeight) {
+  //   Materialize.toast('Highest weight achieved!!' , 2000)
+  // }
+  // else {
+  // }
+  // self.recordWeight =
+  // console.log(self.recordWeight)
+  //End of records
+
+  this.addExercise = function () {
     this.selectedExercises = {
       name: self.selected,
       reps: self.reps,
       weight: self.weight,
       sets: self.sets,
-      count: self.count
+      count: self.count,
+      mood: self.mood
     }
-    //Displaying selected workouttt
-    self.chosen = {}
-    self.chosen.move = self.selected;
-
-    console.log(self.chosen.move = self.selected);
-
+    self.rating = true;
     self.userWorkout.push(this.selectedExercises);
     Materialize.toast('Movement added!' , 2000)
       console.log(self.selected)
@@ -125,10 +161,26 @@ angular.module('workoutApp')
         date: Date.now(),
         exercises: this.userWorkout,
       })
-      swal(
-        "Great!",
-      "Your workout has been saved!",
-      "success")
+      swal({
+        title: "Great!",
+        text: "Would you like to rate your workout?",
+        // type: "warning",
+         imageUrl: "bower_components/sweetalert/example/images/thumbs-up.jpg",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes",
+       cancelButtonText: "No, just save my workout please!",
+       closeOnConfirm: false,
+       closeOnCancel: false },
+       function(isConfirm){
+         if (isConfirm) {
+           swal("Please ",
+           "Your workout has been saved!");
+          } else {
+           swal("All good",
+           "Your workout has been saved!");
+         } });
+
       this.userWorkout=[ ];
     };
 })
