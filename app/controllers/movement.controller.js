@@ -2,7 +2,7 @@
 
 
 angular.module('workoutApp')
-.controller('MoveCtrl', function($firebaseObject, $firebaseArray, firebaseUrl, $stateParams, Auth) {
+.controller('MoveCtrl', function($firebaseObject, $firebaseArray, firebaseUrl, $stateParams, Auth, Records) {
   var self = this;
   this.muscles = $stateParams.muscles
   console.log(self.muscles)
@@ -12,22 +12,24 @@ angular.module('workoutApp')
   var movements = firebaseUrl + 'movements/' + currentUser.$id
   var moveRef = new Firebase(movements)
   this.movements = $firebaseArray(moveRef)
-    console.log(self.movements)
+    // console.log(self.movements)
 
+  var records = firebaseUrl + 'records/' + currentUser.$id
+  var recordsRef = new Firebase(records)
+  this.records = $firebaseObject(recordsRef)
 
-    //try service or factory
-    //if passed an id it makes this call to refenrence
-    //look at snapshot docs
-    //record ref
-    //var records = ...
-
+  //promise returns records as object
+  this.records.$loaded().then(function(data) {
+    console.log(data.squat)
+    self.recordData = data;
+  })
 
   //body parts
-  self.chests = ['Bench press', 'Incline Bench Press'];
+  self.chests = ['Bench Press', 'Incline Bench Press'];
   self.legs = ['Leg press', 'Squat'];
-  self.arms = ['Dumbell curl', 'Skull crushers'];
-  self.shoulders = ['Miltary Press', 'Front raise'];
-  self.abs = ['Situps', 'Window cleaners'];
+  self.arms = ['Dumbell curl', 'Skull Crushers'];
+  self.shoulders = ['Miltary Press', 'Front Raise'];
+  self.abs = ['Situps', 'Window Cleaners'];
 
   this.selectedMuscles = [ ]
   this.muscleList = { }
@@ -40,6 +42,7 @@ angular.module('workoutApp')
       if (muscle === 'chests') {
         // self.chestChoice = true;
         self.muscleList.chest = self.chests;
+
         console.log(self.chestChoice);
       }
       else if (muscle === 'legs') {
@@ -59,7 +62,6 @@ angular.module('workoutApp')
 
   this.selectedMuscle = function(muscle) {
     if (self.muscleList.chest = self.chests) {
-      // self.chestChoice = true;
       self.currentMuscle = "chest"
     }
     else if (self.muscleList.legs = self.legs) {
@@ -118,21 +120,6 @@ angular.module('workoutApp')
   }
   //end of rating logic
 
-  //record logic
-  self.recordWeight = 90;
-  self.recordReps = 50
-
-  self.benchPressWeight
-  //
-  // if (self.weight > self.recordWeight) {
-  //   Materialize.toast('Highest weight achieved!!' , 2000)
-  // }
-  // else {
-  // }
-  // self.recordWeight =
-  // console.log(self.recordWeight)
-  //End of records
-
   this.addExercise = function () {
     this.selectedExercises = {
       name: self.selected,
@@ -142,6 +129,15 @@ angular.module('workoutApp')
       count: self.count,
       mood: self.mood
     }
+      angular.forEach(self.recordData, function(val, key) {
+        var movement = self.selected.replace(/ /g,'_')
+        if (key === movement) {
+          if (self.weight > val) {
+            alert("You beat your record! WOOO")
+              Records.userData(movement, self.weight);
+          }
+        }
+      })
     self.rating = true;
     self.userWorkout.push(this.selectedExercises);
     Materialize.toast('Movement added!' , 2000)

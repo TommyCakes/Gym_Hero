@@ -15,29 +15,29 @@
         <h5>Please choose your exercise below</h5>
         <a twitter data-text="" data-url="http://0.0.0.0:8080/#/signIn"></a>
         <ul class="tabs" tabs>
-            <li ng-show="move.muscles.chest.length" class="tab col s3"><a href="#test1">Chest</a></li>
-            <li ng-show="move.muscles.legs.length" class="tab col s3"><a class="active" href="#test2">Legs</a></li>
-            <li ng-show="move.muscles.shoulders.length" class="tab col s3"><a href="#test3">Shoulders</a></li>
-            <li ng-show="move.muscles.arms.length" class="tab col s3"><a href="#test4">Arms</a></li>
+            <li ng-show="move.muscles.chest.length" class="tab col s3"><a href="#chest">Chest</a></li>
+            <li ng-show="move.muscles.legs.length" class="tab col s3"><a class="active" href="#legs">Legs</a></li>
+            <li ng-show="move.muscles.shoulders.length" class="tab col s3"><a href="#shoulders">Shoulders</a></li>
+            <li ng-show="move.muscles.arms.length" class="tab col s3"><a href="#arms">Arms</a></li>
         </ul>
     </div>
-    <div id="test1" class="col s12">
+    <div id="chest" class="col s12">
 
       <select class="white" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.chest">
          <option value=""> Chest Exercises </option>
       </select>
     </div>
-    <div id="test2" class="col s12">
+    <div id="legs" class="col s12">
       <select class="white" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.legs">
       <option value=""> Legs Exercises</option>
       </select>
     </div>
-    <div id="test3" class="col s12">
+    <div id="shoulders" class="col s12">
       <select class="white" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.shoulders">
       <option value=""> Shoulders Exercises</option>
      </select>
    </div>
-    <div id="test4" class="col s12">
+    <div id="arms" class="col s12">
       <select class="white" ng-model="move.selected" ng-options="muscle as muscle for muscle in move.muscles.arms">
       <option value=""> Arms Exercises</option>
       </select>

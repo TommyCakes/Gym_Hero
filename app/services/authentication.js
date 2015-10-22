@@ -69,18 +69,15 @@ angular.module('workoutApp')
       return false
     }
       var records = ref.child('records').child(userData.uid)
-
       records.on('value', function(snapshot) {
         if (snapshot.exists() === false) {
           records.update({
-            benchPress: 75,
-            squat: 40,
+            Bench_Press: 75,
+            Squat: 40,
           })
           console.log("first time records")
         }
       });
-
-    // }
 
     var user = ref.child('users').child(userData.uid)
       user.update({

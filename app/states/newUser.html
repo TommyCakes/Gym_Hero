@@ -1,0 +1,12 @@
+<h1>Welcome to Gym Hero!</h1>
+
+<h3>Are you <span><a ng-click="app.genderSelect('male')" href="#">male</a></span>
+  or <span><a ng-click="app.genderSelect('female')" href="#">female</a></span>?</h3>
+
+<h3>Please choose your skill level: </h3>
+<span>
+  <button ng-show="app.gender === 'male' && app.gender !== 'female'" id="beginner">Man</button>
+    <button ng-show="app.gender === 'female' && app.gender !== 'male'" id="beginner1">Woman</button>
+<button id="intermidiate"></button>
+<button id="advanced"></button><
+</span>

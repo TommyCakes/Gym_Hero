@@ -15,6 +15,10 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate', 'ui.material
       url: '/signIn',
       templateUrl: 'app/states/signIn.html'
     })
+    .state('newUser', {
+      url: '/newUser',
+      templateUrl: 'app/states/newUser.html'
+    })
     .state('home', {
       url: '/',
       templateUrl: 'app/states/home.html'
