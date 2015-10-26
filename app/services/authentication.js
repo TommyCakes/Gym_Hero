@@ -2,7 +2,7 @@
 
 
 angular.module('workoutApp')
-  .factory('Auth', function($firebase, firebaseUrl, $firebaseObject, $firebaseArray) {
+  .factory('Auth', function($firebase, firebaseUrl, $firebaseObject, $firebaseArray, $location, $stateParams, $state) {
 
     var ref = new Firebase(firebaseUrl)
     var authData = ref.getAuth();
@@ -67,13 +67,15 @@ angular.module('workoutApp')
   function updateUser (userData) {
     if (userData === null) {
       return false
+      console.log(self.new)
     }
       var records = ref.child('records').child(userData.uid)
       records.on('value', function(snapshot) {
         if (snapshot.exists() === false) {
           records.update({
-            Bench_Press: 75,
-            Squat: 40,
+            Bench_Press: 60,
+            Squat: 50,
+            Barbell_Curl: 25,
           })
           console.log("first time records")
         }

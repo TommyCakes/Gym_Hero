@@ -6,6 +6,7 @@ angular.module('workoutApp')
   var self = this;
   this.muscles = $stateParams.muscles
   console.log(self.muscles)
+
   var currentUser = Auth.getCurrentUser()
   console.log(Auth.getCurrentUser())
 
@@ -20,14 +21,14 @@ angular.module('workoutApp')
 
   //promise returns records as object
   this.records.$loaded().then(function(data) {
-    console.log(data.squat)
+    console.log(data.Squat)
     self.recordData = data;
   })
 
   //body parts
   self.chests = ['Bench Press', 'Incline Bench Press'];
   self.legs = ['Leg press', 'Squat'];
-  self.arms = ['Dumbell curl', 'Skull Crushers'];
+  self.arms = ['Barbell Curl', 'Skull Crushers'];
   self.shoulders = ['Miltary Press', 'Front Raise'];
   self.abs = ['Situps', 'Window Cleaners'];
 
@@ -120,6 +121,9 @@ angular.module('workoutApp')
   }
   //end of rating logic
 
+
+  var sound = new Audio("app/sounds/sound.mp3");
+
   this.addExercise = function () {
     this.selectedExercises = {
       name: self.selected,
@@ -133,7 +137,8 @@ angular.module('workoutApp')
         var movement = self.selected.replace(/ /g,'_')
         if (key === movement) {
           if (self.weight > val) {
-            alert("You beat your record! WOOO")
+                Materialize.toast('You beat your personal best!' , 2000)
+                // sound.play()
               Records.userData(movement, self.weight);
           }
         }
@@ -150,6 +155,7 @@ angular.module('workoutApp')
         self.count++
         console.log(self.selectedExercises.count)
   }
+
     self.back = false
     this.saved = function() {
       self.back = true;
@@ -159,23 +165,24 @@ angular.module('workoutApp')
       })
       swal({
         title: "Great!",
-        text: "Would you like to rate your workout?",
+        text: "Your workout had been saved",
         // type: "warning",
-         imageUrl: "bower_components/sweetalert/example/images/thumbs-up.jpg",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes",
-       cancelButtonText: "No, just save my workout please!",
-       closeOnConfirm: false,
-       closeOnCancel: false },
-       function(isConfirm){
-         if (isConfirm) {
-           swal("Please ",
-           "Your workout has been saved!");
-          } else {
-           swal("All good",
-           "Your workout has been saved!");
-         } });
+         imageUrl: "app/Logo.png",
+      //   showCancelButton: true,
+      //   confirmButtonColor: "#DD6B55",
+      //   confirmButtonText: "Yes",
+      //  cancelButtonText: "No, just save my workout please!",
+      //  closeOnConfirm: false,
+      //  closeOnCancel: false
+     });
+      //  function(isConfirm){
+      //    if (isConfirm) {
+      //      swal("Ok! ",
+      //      "Your workout has been saved");
+      //     } else {
+      //      swal("All good!",
+      //      "Your workout has been saved");
+      //    } });
 
       this.userWorkout=[ ];
     };

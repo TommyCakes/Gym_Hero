@@ -39,13 +39,17 @@
 
       <ul id="settings" class="right">
             <li>
-            <a ui-sref="#" ng-click="app.settings()">
-            <i class="tiny material-icons right text">settings</i>
+            <a ng-if="app.user" ui-sref="newUser">
+            <i class="tiny material-icons right text">perm_identity</i>
+            </a>
+            <a ng-if="!app.user" ui-sref="signIn">
+            <i class="tiny material-icons right text">perm_identity</i>
             </a>
         </li>
         </ul>
   </div>
 </nav>
+
 
  <div id="app-views" ui-view></div>
 
@@ -68,6 +72,7 @@
 <script src="app/controllers/home.controller.js"></script>
 <script src="app/controllers/movement.controller.js"></script>
 <script src="app/controllers/history.controller.js"></script>
+<script src="app/controllers/newUser.controller.js"></script>
 <script src="app/directives/ratings.js"></script>
 <script src="app/directives/tweets.js"></script>
 

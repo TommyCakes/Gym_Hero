@@ -6,8 +6,7 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate', 'ui.material
 
   .config(function($stateProvider, $urlRouterProvider) {
 
-    // $urlRouterProvider.otherwise('/signIn');
-    $urlRouterProvider.otherwise('/createWorkout.addMovement');
+    $urlRouterProvider.otherwise('/');
     $stateProvider
 
     //SignIn view
@@ -17,7 +16,8 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate', 'ui.material
     })
     .state('newUser', {
       url: '/newUser',
-      templateUrl: 'app/states/newUser.html'
+      templateUrl: 'app/states/newUser.html',
+      controller: 'newUserCtrl as user'
     })
     .state('home', {
       url: '/',
@@ -51,9 +51,9 @@ angular.module('workoutApp', ['ui.router', 'firebase', 'ngAnimate', 'ui.material
         controller: 'MoveCtrl as move',
 
     })
-    .state('challenges', {
-      url: '/challenges',
-      templateUrl: 'app/states/challenges.html',
+    .state('records', {
+      url: '/records',
+      templateUrl: 'app/states/records.html',
       controller: 'MoveCtrl as move',
     })
   })

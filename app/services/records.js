@@ -1,15 +1,18 @@
+'use strict';
+
 angular.module('workoutApp')
   .factory('Records', function($firebase, firebaseUrl, $firebaseObject, $firebaseArray, Auth) {
 
     var self = this;
 
-    var currentUser = Auth.getCurrentUser()
+    this.currentUser = Auth.getCurrentUser()
+    console.log(self.currentUser)
 
-    var records = firebaseUrl + 'records/' + currentUser.$id
+    var records = firebaseUrl + 'records/' + self.currentUser.$id
     var recordsRef = new Firebase(records)
     var recordsObj = $firebaseObject(recordsRef)
 
-    console.log(self.records)
+    console.log(records)
 
     return {
 

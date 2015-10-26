@@ -1,4 +1,4 @@
-body {
+  body {
   text-align: center;
   color:lightgrey;
   height:100 vh;
@@ -14,9 +14,11 @@ nav
 }
 
 /* Changing nav look */
+
 nav , .nav-wrapper {
   background: #4EA6BF;
 }
+
 li , a:hover {
   background:#4EA6BF;
   -webkit-transition: opacity ease-out 0.5s;
@@ -41,6 +43,14 @@ img {
   top:150px;
   color:black;
 }
+#user {
+  border-radius: 50%;
+  margin: 0 auto;
+  width: 80px;
+  height: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 #sign-in {
   position:absolute;
   width:100%;
@@ -48,7 +58,6 @@ img {
   color:lightgrey;
 }
 .collection {
-  position:absolute;
   width:100%;
   bottom:-15px;
   float:left;
@@ -72,7 +81,6 @@ img {
 }
 
 /* Test css for new sign in page*/
-
 #lock {
   top: 11px;
   right: 30px;
@@ -83,6 +91,13 @@ img {
   top:11px;
   left:5px;
   position: relative;
+}
+  @media screen and (min-width: 480px){
+    #settings {
+    top:11px;
+    left:5px;
+    position: relative;
+  }
 }
 .intro {
   background:#BDBDBD;
@@ -121,22 +136,13 @@ img {
    padding-bottom: 0;
  }
  .btn-large {
-    height: 70px;
-    line-height: 26px;
+    height: 80px;
+    /*line-height: 26px;*/
     background-color: #26a69a;
+    width:100%;
 }
 #disabled{
     background-color: #26a69a;
-}
-#user {
-  border-radius: 50%;
-  margin: 0 auto;
-  width: 60px;
-  height: auto;
-}
-footer {
-  height:100vh:
-  background-color:black;
 }
 #workouts {
   padding: 10px 2px;
@@ -264,56 +270,3 @@ bottom: 0%;
 top: 90%;
 right: 0%;
 left: 0%; } }
-
-
-
-@-webkit-keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  16.666% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-moz-keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  16.666% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  16.666% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-/*
-Loading*/
-.bubble {
-  animation:pulse 1s infinite;
-  -webkit-animation:pulse 1s infinite;
-}
-
-@keyframes pulse {
-  0%      { transform:scale(1); }
-  25%     { transform:scale(2); }
-  75%     { transform:scale(1); }
-}
-@-webkit-keyframes pulse {
-  0%      { -webkit-transform:scale(1); }
-  25%     { -webkit-transform:scale(2); }
-  75%     { -webkit-transform:scale(1); }
-}
