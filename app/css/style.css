@@ -57,7 +57,11 @@ img {
   bottom:90px;
   color:lightgrey;
 }
+#authentication {
+    position: absolute;
+}
 .collection {
+
   width:100%;
   bottom:-15px;
   float:left;
