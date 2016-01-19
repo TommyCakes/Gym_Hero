@@ -2,14 +2,14 @@
 
 
 angular.module('workoutApp')
-  .controller('HomeCtrl', function($firebaseObject, $firebaseArray, $location, firebaseUrl, Auth,  Records, $stateParams, $state ){
+  .controller('HomeCtrl', function($firebaseObject, $firebaseArray, $location, firebaseUrl, Auth,  $stateParams, $state ){
      var self = this;
 
 
     this.fireLink = firebaseUrl;
     var ref = new Firebase(firebaseUrl)
 
-    // var movements = firebaseUrl + 'movements'
+    // var movements = firebaseUrl + 'movements'2
     // var moveRef = new Firebase(movements)
     // this.movements = $firebaseArray(moveRef)
 

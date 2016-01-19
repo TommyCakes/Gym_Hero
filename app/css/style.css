@@ -3,8 +3,8 @@
   color:lightgrey;
   height:100 vh;
 }
-nav
-.brand-logo {
+/*Nav bar */
+nav.brand-logo {
   /*weight:500;*/
   font-size:2.3em;
   top:-5px;
@@ -20,12 +20,31 @@ nav , .nav-wrapper {
 }
 
 li , a:hover {
-  background:#4EA6BF;
+  /*background:#4EA6BF;*/
   -webkit-transition: opacity ease-out 0.5s;
    -moz-transition: opacity ease-out 0.5s;
    -o-transition: opacity ease-out 0.5s;
    transition: opacity ease-out 0.5s;
 }
+#lock {
+  top: 11px;
+  right: 30px;
+  position: relative;
+  margin-right: -30px;
+}
+#settings {
+  top:11px;
+  left:5px;
+  position: relative;
+}
+  @media screen and (min-width: 480px){
+    #settings {
+    top:11px;
+    left:5px;
+    position: relative;
+  }
+}
+
 /* Test css for new sign in page*/
 #circle {
   position:relative;
@@ -61,7 +80,6 @@ img {
     position: absolute;
 }
 .collection {
-
   width:100%;
   bottom:-15px;
   float:left;
@@ -83,26 +101,8 @@ img {
   color: #2A31FF;
   padding:1px;
 }
+/* End test css for new sign in page*/
 
-/* Test css for new sign in page*/
-#lock {
-  top: 11px;
-  right: 30px;
-  position: relative;
-  margin-right: -30px;
-}
-#settings {
-  top:11px;
-  left:5px;
-  position: relative;
-}
-  @media screen and (min-width: 480px){
-    #settings {
-    top:11px;
-    left:5px;
-    position: relative;
-  }
-}
 .intro {
   background:#BDBDBD;
   height:625px;
