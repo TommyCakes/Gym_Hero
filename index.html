@@ -24,13 +24,13 @@
 
     <ul id="nav-mobile" class="left">
       <li>
-        <a ng-if="!app.user" ui-sref="signIn" class="center text ">
+        <a ng-if="!app.user" ui-sref="signIn" class="center text" id="login">
         <i id="lock" class="tiny material-icons left text">lock_outline</i>
         LOG IN
       </a>
       </li>
       <li>
-        <a ng-if="app.user" ui-sref="signIn" class="center text" ui-sref="#" ng-click="app.logout()">
+        <a ng-if="app.user" ui-sref="signIn" class="center text" id="login" ui-sref="#" ng-click="app.logout()">
           <i id="lock" class="tiny material-icons left text">lock_open</i>
           LOG OUT
         </a>
@@ -40,10 +40,10 @@
       <ul id="settings" class="right">
             <li>
             <a ng-if="app.user" ui-sref="newUser">
-            <i class="tiny material-icons right text">perm_identity</i>
+            <i id="profile" class="tiny material-icons right text">perm_identity</i>
             </a>
             <a ng-if="!app.user" ui-sref="signIn">
-            <i class="tiny material-icons right text">perm_identity</i>
+            <i id="profile" class="tiny material-icons right text">perm_identity</i>
             </a>
         </li>
         </ul>
