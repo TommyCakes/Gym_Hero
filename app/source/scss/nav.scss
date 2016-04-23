@@ -1,0 +1,55 @@
+/*Nav bar */
+nav {
+  background: #4EA6BF;
+  .nav-wrapper {
+    width:100%;
+    .brand-logo {
+      font-size:2.3em;
+      top:-5px;
+      position:relative;
+    }
+    ul>li:hover {
+    background:#4EA6BF;
+    }
+    .left {
+        margin-left:10px;
+      #login {
+        position: relative;
+        top: 1px;
+        line-height: 55px;
+      }
+    }
+    .right {
+      margin-right:10px;
+      #settings {
+      float:right;
+      top:11px;
+      left:5px;
+      position: relative;
+      }
+      #profile {
+      position: relative;
+      line-height: 55px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 970px) {
+  nav>.nav-wrapper {
+    .brand-logo {
+      position:absolute;
+    }
+    .left>a {
+      top: 100px;
+    }
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  nav>.nav-wrapper {
+    .left>#login {
+      top: 100px;
+    }
+  }
+}

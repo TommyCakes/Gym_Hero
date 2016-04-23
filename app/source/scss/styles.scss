@@ -1,0 +1,182 @@
+@import 'animate';
+@import 'materialize';
+@import 'nav';
+@import 'home';
+@import 'signin';
+@import 'create-workout';
+
+//
+body {
+text-align: center;
+color:lightgrey;
+background: #eceff1;
+}
+
+/* Test css for new sign in page*/
+#user {
+border-radius: 50%;
+margin: 0 auto;
+width: 80px;
+height: auto;
+margin-bottom: 20px;
+margin-top: 20px;
+}
+//
+//
+.intro {
+background:#BDBDBD;
+height:625px;
+padding-top:-700px;
+}
+.center {
+text-align:center;
+}
+.center-btn {
+text-align: center;
+width:100%;
+height:100px;
+}
+.blue.lighten-3 {
+ color:lightgoldenrodyellow;
+ margin-top:50px;
+ padding:20px;
+ height:70px;
+}
+select, input  {
+ display:block;
+}
+.tabs
+.tab a {
+ color:white;
+}
+span {
+ font-size:1em;
+ /*color:blue;*/
+}
+
+// #workouts {
+// padding: 10px 2px;
+// border-bottom: 1px solid lightgrey;
+// }
+// #workout-collection {
+// padding: 10px 2px;
+// position: relative;
+// }
+// // .collection > a.collection-item: hover {
+// // background:white;
+// // }
+// .collection {
+// /*position: relative;*/
+// }
+// span {
+// color: grey;
+// }
+// #app-views.ng-enter, #app-views.ng-leave  {
+//   position:absolute;
+//   left:30px;
+//   right:30px;
+//   transition:0.5s all ease;
+//   -moz-transition:0.5s all ease;
+//   -webkit-transition:0.5s all ease;
+// }
+// #workout-view {
+//   transition:0.1s all ease;
+//   -moz-transition:0.2s all ease;
+//   -webkit-transition:0.2s all ease;
+// }
+//
+// #app-views.ng-enter  {
+//   -webkit-animation:slideInRight 1s both ease;
+//   -moz-animation:slideInRight 1s both ease;
+//   animation:slideInRight 1s both ease;
+// }
+// #app-views.ng-enter #workout-view   {
+//   -webkit-animation:slideInDown 0.8s both ease;
+//   -moz-animation:slideInDown 0.8s both ease;
+//   animation:slideInDown 0.8s both ease;
+// }
+// /* leave animation */
+// #app-views.ng-leave, #workout-view.ng-leave  {
+//   -webkit-animation:slideOutLeft 0.5s both ease;
+//   -moz-animation:slideOutLeft 0.5s both ease;
+//   animation:slideOutLeft 0.5s both ease;
+// }
+//
+// @keyframes slideOutLeft {
+//   to      { transform: translateX(-200%); }
+// }
+// @-moz-keyframes slideOutLeft {
+//   to      { -moz-transform: translateX(-200%); }
+// }
+// @-webkit-keyframes slideOutLeft {
+//   to      { -webkit-transform: translateX(-200%); }
+// }
+//
+// /* slide in from the right */
+// @keyframes slideInRight {
+//   from    { transform:translateX(200%); }
+//   to      { transform: translateX(0); }
+// }
+// @-moz-keyframes slideInRight {
+//   from    { -moz-transform:translateX(200%); }
+//   to      { -moz-transform: translateX(0); }
+// }
+// @-webkit-keyframes slideInRight {
+//   from    { -webkit-transform:translateX(200%); }
+//   to      { -webkit-transform: translateX(0); }
+// }
+//
+//
+//
+// @-webkit-keyframes slideInDown {
+// from {
+//   -webkit-transform: translate3d(0, -100%, 0);
+//   transform: translate3d(0, -100%, 0);
+//   visibility: visible;
+// }
+//
+// to {
+//   -webkit-transform: translate3d(0, 0, 0);
+//   transform: translate3d(0, 0, 0);
+// }
+// }
+//
+// @keyframes slideInDown {
+// from {
+//   -webkit-transform: translate3d(0, -100%, 0);
+//   transform: translate3d(0, -100%, 0);
+//   visibility: visible;
+// }
+//
+// to {
+//   -webkit-transform: translate3d(0, 0, 0);
+//   transform: translate3d(0, 0, 0);
+// }
+// }
+//
+//
+// @media only screen and (min-width : 601px) and (max-width : 1260px) {
+// .toast {
+// width: 100%;
+// border-radius: 0;} }
+//
+// @media only screen and (min-width : 1261px) {
+// .toast {
+// width: 100%;
+// border-radius: 0; } }
+//
+// @media only screen and (min-width : 601px) and (max-width : 1260px) {
+// #toast-container {
+// min-width: 100%;
+// bottom: 0%;
+// top: 90%;
+// right: 0%;
+// left: 0%;} }
+//
+// @media only screen and (min-width : 1261px) {
+// #toast-container {
+// min-width: 100%;
+// bottom: 0%;
+// top: 90%;
+// right: 0%;
+// left: 0%; } }
