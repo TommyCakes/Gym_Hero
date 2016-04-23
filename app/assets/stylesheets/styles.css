@@ -10772,7 +10772,13 @@ nav {
         position: relative;
         line-height: 55px; }
 
-@media only screen and (max-width: 970px) {
+@media only screen and (min-width: 1000px) {
+  nav {
+    height: 120px; }
+    nav .nav-wrapper i {
+      font-size: 3em; } }
+
+@media only screen and (max-width: 990px) {
   nav > .nav-wrapper .brand-logo {
     position: absolute; }
   nav > .nav-wrapper .left > a {
@@ -10800,18 +10806,15 @@ nav {
 #circle {
   position: relative;
   margin: 0 auto;
-  top: 80px;
-  height: 150px;
-  width: 150px; }
-
-img {
-  margin: 0 auto; }
-
-#greeting {
-  position: absolute;
-  width: 100%;
-  top: 150px;
-  color: black; }
+  top: 40px;
+  width: 100%; }
+  #circle img {
+    margin: 0 auto;
+    margin-bottom: 10px; }
+  #circle #greeting {
+    margin: 0 auto;
+    width: 50%;
+    color: black; }
 
 #sign-in {
   position: absolute;
@@ -10843,6 +10846,30 @@ img {
 .fa-facebook {
   color: #2A31FF;
   padding: 1px; }
+
+@media only screen and (min-width: 1000px) {
+  #circle {
+    top: 100px; }
+    #circle img {
+      width: 300px;
+      margin-bottom: 60px; }
+  #sign-in {
+    bottom: 400px; }
+    #sign-in h6 {
+      font-size: 2em; }
+  .collection .collection-item {
+    background-color: #fff;
+    line-height: 1.5rem;
+    padding: 60px 20px;
+    margin: 0;
+    border-bottom: 1px solid #e0e0e0; }
+  .collection i {
+    font-size: 2em;
+    padding: 20px; } }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  .collection > .collection-item {
+    padding: 27px 20px; } }
 
 body {
   text-align: center;
