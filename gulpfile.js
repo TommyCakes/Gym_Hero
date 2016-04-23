@@ -11,11 +11,12 @@ gulp.task('serve', ['sass'], function() {
 
     gulp.watch("app/source/scss/*.scss", ['sass']);
     gulp.watch("*.html").on('change', browserSync.reload);
+    gulp.watch("app/states/*.html").on('change', browserSync.reload);
 });
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
-    return gulp.src("app/source/scss/*.scss")
+    return gulp.src("app/source/scss/styles.scss")
         .pipe(sass())
         .pipe(gulp.dest("app/assets/stylesheets"))
         .pipe(browserSync.stream());
